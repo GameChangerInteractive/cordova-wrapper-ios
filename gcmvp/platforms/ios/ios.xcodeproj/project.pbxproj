@@ -16,7 +16,7 @@
 		25D2AFBFB62E49F696D79EC2 /* CDVNotification.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7851E7D15F3B4AEC8D665D0E /* CDVNotification.bundle */; };
 		2A8A3A401EC54F6BB9B4589C /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA3A92565A4F42F0B6430CE9 /* CoreAudio.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		301BF552109A68D80062928A /* libCordova.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 301BF535109A57CC0062928A /* libCordova.a */; };
-		302D95F114D2391D003F00A1 /* GcmvpCordovaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 302D95EF14D2391D003F00A1 /* GcmvpCordovaViewController.m */; };
+		302D95F114D2391D003F00A1 /* GcmvpCordovaWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 302D95EF14D2391D003F00A1 /* GcmvpCordovaWebViewController.m */; };
 		302D95F214D2391D003F00A1 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 302D95F014D2391D003F00A1 /* MainViewController.xib */; };
 		344FA195AFC94EE58DC287E6 /* Insomnia.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BCC071CC361490BA49B8DE8 /* Insomnia.m */; };
 		3A5106EAF49D4F4E893352B4 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1A65A0764234076A3F0E484 /* Accelerate.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
@@ -30,8 +30,8 @@
 		B5756ED4525E43D7B01F829C /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7A3E1E130434F56AC885284 /* WebKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		D71B25B41F866CC000D64071 /* gcmvp.m in Sources */ = {isa = PBXBuildFile; fileRef = D71B25B31F866CC000D64071 /* gcmvp.m */; };
 		D71B25B51F866CC000D64071 /* gcmvp.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D71B25B21F866CC000D64071 /* gcmvp.h */; };
-		D71B25B91F866CCE00D64071 /* GcmvpCordovaViewController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 302D95EE14D2391D003F00A1 /* GcmvpCordovaViewController.h */; };
-		D71B25BA1F866CD000D64071 /* GcmvpCordovaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 302D95EF14D2391D003F00A1 /* GcmvpCordovaViewController.m */; };
+		D71B25B91F866CCE00D64071 /* GcmvpCordovaWebViewController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 302D95EE14D2391D003F00A1 /* GcmvpCordovaWebViewController.h */; };
+		D71B25BA1F866CD000D64071 /* GcmvpCordovaWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 302D95EF14D2391D003F00A1 /* GcmvpCordovaWebViewController.m */; };
 		D74B74EC1F87301600DDAA2B /* AudioReceiver.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = E27D478E264946958A04B3CF /* AudioReceiver.h */; };
 		D74B74ED1F87301600DDAA2B /* Flashlight.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4CA180A9CE584604AA22FA16 /* Flashlight.h */; };
 		D74B74EE1F87301600DDAA2B /* Insomnia.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2E90625C9F1B4B469875B170 /* Insomnia.h */; };
@@ -93,7 +93,7 @@
 				D74B74EF1F87301600DDAA2B /* CDVVibration.h in CopyFiles */,
 				D74B74F01F87301600DDAA2B /* CDVNotification.h in CopyFiles */,
 				D74B74F51F87301600DDAA2B /* CDVInAppBrowser.h in CopyFiles */,
-				D71B25B91F866CCE00D64071 /* GcmvpCordovaViewController.h in CopyFiles */,
+				D71B25B91F866CCE00D64071 /* GcmvpCordovaWebViewController.h in CopyFiles */,
 				D71B25B51F866CC000D64071 /* gcmvp.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -122,8 +122,8 @@
 		2E90625C9F1B4B469875B170 /* Insomnia.h */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.h; name = Insomnia.h; path = "cordova-plugin-insomnia/Insomnia.h"; sourceTree = "<group>"; };
 		301BF52D109A57CC0062928A /* CordovaLib/CordovaLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = CordovaLib/CordovaLib.xcodeproj; sourceTree = "<group>"; };
 		301BF56E109A69640062928A /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; path = www; sourceTree = SOURCE_ROOT; };
-		302D95EE14D2391D003F00A1 /* GcmvpCordovaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GcmvpCordovaViewController.h; sourceTree = "<group>"; };
-		302D95EF14D2391D003F00A1 /* GcmvpCordovaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GcmvpCordovaViewController.m; sourceTree = "<group>"; };
+		302D95EE14D2391D003F00A1 /* GcmvpCordovaWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GcmvpCordovaWebViewController.h; sourceTree = "<group>"; };
+		302D95EF14D2391D003F00A1 /* GcmvpCordovaWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GcmvpCordovaWebViewController.m; sourceTree = "<group>"; };
 		302D95F014D2391D003F00A1 /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
 		3047A50F1AB8059700498E2A /* build-debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = "build-debug.xcconfig"; path = "cordova/build-debug.xcconfig"; sourceTree = SOURCE_ROOT; };
 		3047A5101AB8059700498E2A /* build-release.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = "build-release.xcconfig"; path = "cordova/build-release.xcconfig"; sourceTree = SOURCE_ROOT; };
@@ -184,8 +184,8 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				302D95EE14D2391D003F00A1 /* GcmvpCordovaViewController.h */,
-				302D95EF14D2391D003F00A1 /* GcmvpCordovaViewController.m */,
+				302D95EE14D2391D003F00A1 /* GcmvpCordovaWebViewController.h */,
+				302D95EF14D2391D003F00A1 /* GcmvpCordovaWebViewController.m */,
 				302D95F014D2391D003F00A1 /* MainViewController.xib */,
 				1D3623240D0F684500981E51 /* AppDelegate.h */,
 				1D3623250D0F684500981E51 /* AppDelegate.m */,
@@ -453,7 +453,7 @@
 			files = (
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
 				1D3623260D0F684500981E51 /* AppDelegate.m in Sources */,
-				302D95F114D2391D003F00A1 /* GcmvpCordovaViewController.m in Sources */,
+				302D95F114D2391D003F00A1 /* GcmvpCordovaWebViewController.m in Sources */,
 				72438AEFD0CE4848A8C23276 /* CDVAudioInputCapture.m in Sources */,
 				42A57A5EC2A0474CAF2304B5 /* AudioReceiver.h in Sources */,
 				60F777850A0F405AA36ED038 /* AudioReceiver.m in Sources */,
@@ -477,7 +477,7 @@
 				D74B74FB1F87302600DDAA2B /* CDVNotification.m in Sources */,
 				D74B75001F87302600DDAA2B /* CDVInAppBrowser.m in Sources */,
 				D71B25B41F866CC000D64071 /* gcmvp.m in Sources */,
-				D71B25BA1F866CD000D64071 /* GcmvpCordovaViewController.m in Sources */,
+				D71B25BA1F866CD000D64071 /* GcmvpCordovaWebViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

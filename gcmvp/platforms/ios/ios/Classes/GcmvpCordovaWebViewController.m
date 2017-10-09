@@ -25,9 +25,9 @@
 //  Copyright ___ORGANIZATIONNAME___ ___YEAR___. All rights reserved.
 //
 
-#import "GcmvpCordovaViewController.h"
+#import "GcmvpCordovaWebViewController.h"
 
-@implementation GcmvpCordovaViewController
+@implementation GcmvpCordovaWebViewController
 
 - (id)initWithNibName:(NSString*)nibNameOrNil bundle:(NSBundle*)nibBundleOrNil
 {
