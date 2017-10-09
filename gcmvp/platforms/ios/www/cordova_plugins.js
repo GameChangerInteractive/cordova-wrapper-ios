@@ -63,7 +63,8 @@ module.exports.metadata =
     "cordova-plugin-dialogs": "1.3.3",
     "cordova-plugin-inappbrowser": "1.7.1",
     "cordova-plugin-ios-camera-permissions": "1.2.0",
-    "cordova-plugin-remote-injection": "0.5.2"
+    "cordova-plugin-remote-injection": "0.5.2",
+    "cordova-plugin-ios-microphone-permissions": "1.0.0"
 };
 // BOTTOM OF METADATA
 });

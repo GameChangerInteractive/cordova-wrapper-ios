@@ -37,4 +37,5 @@
         <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value="This app needs read/write-access photo library access" />
     </plugin>
     <plugin name="cordova-plugin-remote-injection" spec="^0.5.2" />
+    <plugin name="cordova-plugin-ios-microphone-permissions" spec="^1.0.0" />
 </widget>

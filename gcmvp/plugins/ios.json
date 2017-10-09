@@ -37,6 +37,9 @@
         },
         "cordova-plugin-remote-injection": {
             "PACKAGE_NAME": "com.it.gcmvp"
+        },
+        "cordova-plugin-ios-microphone-permissions": {
+            "PACKAGE_NAME": "com.it.gcmvp"
         }
     },
     "dependent_plugins": {
