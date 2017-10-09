@@ -28,6 +28,11 @@
 #import "CDVLocalStorage.h"
 #import "CDVCommandDelegateImpl.h"
 #import <Foundation/NSCharacterSet.h>
+#import "CDVUIWebViewEngine.h"
+#import "CDVHandleOpenURL.h"
+#import "CDVGestureHandler.h"
+#import "CDVIntentAndNavigationFilter.h"
+#import "CDVRemoteInjection.h"
 
 @interface CDVViewController () {
     NSInteger _userAgentLockToken;
@@ -162,8 +167,12 @@
 {
     // read from config.xml in the app bundle
     NSString* path = [self configFilePath];
+    
+    NSLog(@"parseSettingsWithParser = path = %@", path);
 
     NSURL* url = [NSURL fileURLWithPath:path];
+    
+    NSLog(@"parseSettingsWithParser = url = %@", url);
 
     self.configParser = [[NSXMLParser alloc] initWithContentsOfURL:url];
     if (self.configParser == nil) {
@@ -242,8 +251,9 @@
 {
     NSURL* errorUrl = nil;
 
-    id setting = [self.settings cordovaSettingForKey:@"ErrorUrl"];
-
+    /*id setting = [self.settings cordovaSettingForKey:@"ErrorUrl"];*/
+    id setting = [self.settings objectForKey:[@"ErrorUrl" lowercaseString]];
+    
     if (setting) {
         NSString* errorUrlString = (NSString*)setting;
         if ([errorUrlString rangeOfString:@"://"].location != NSNotFound) {
@@ -278,17 +288,25 @@
     [self loadSettings];
 
     NSString* backupWebStorageType = @"cloud"; // default value
-
-    id backupWebStorage = [self.settings cordovaSettingForKey:@"BackupWebStorage"];
+    
+    /*id backupWebStorage = [self.settings cordovaSettingForKey:@"BackupWebStorage"];
     if ([backupWebStorage isKindOfClass:[NSString class]]) {
         backupWebStorageType = backupWebStorage;
     }
-    [self.settings setCordovaSetting:backupWebStorageType forKey:@"BackupWebStorage"];
-
+    [self.settings setCordovaSetting:backupWebStorageType forKey:@"BackupWebStorage"];*/
+    
+    id backupWebStorage = [self.settings objectForKey:[@"BackupWebStorage" lowercaseString]];
+    if ([backupWebStorage isKindOfClass:[NSString class]]) {
+        backupWebStorageType = backupWebStorage;
+    }
+    [self.settings setObject:backupWebStorageType forKey:[@"BackupWebStorage" lowercaseString]];
+    
     [CDVLocalStorage __fixupDatabaseLocationsWithBackupType:backupWebStorageType];
 
     // // Instantiate the WebView ///////////////
 
+    NSLog(@"createGapView------viewDidLoad");
+    
     if (!self.webView) {
         [self createGapView];
     }
@@ -318,16 +336,24 @@
         [CDVTimer stop:@"TotalPluginStartup"];
     }
 
+    NSLog(@"acquireLock------viewDidLoad");
+    
     // /////////////////
     NSURL* appURL = [self appUrl];
     __weak __typeof__(self) weakSelf = self;
+    
+    NSLog(@"appURL------viewDidLoad = %@", appURL);
 
     [CDVUserAgentUtil acquireLock:^(NSInteger lockToken) {
         // Fix the memory leak caused by the strong reference.
         [weakSelf setLockToken:lockToken];
         if (appURL) {
             NSURLRequest* appReq = [NSURLRequest requestWithURL:appURL cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:20.0];
+            
+            NSLog(@"appReq------viewDidLoad = %@", appReq);
+            
             [self.webViewEngine loadRequest:appReq];
+            
         } else {
             NSString* loadErr = [NSString stringWithFormat:@"ERROR: Start Page at '%@/%@' was not found.", self.wwwFolderName, self.startPage];
             NSLog(@"%@", loadErr);
@@ -346,9 +372,14 @@
     
     // /////////////////
     
-    NSString* bgColorString = [self.settings cordovaSettingForKey:@"BackgroundColor"];
+    /*NSString* bgColorString = [self.settings cordovaSettingForKey:@"BackgroundColor"];
+    UIColor* bgColor = [self colorFromColorString:bgColorString];
+    [self.webView setBackgroundColor:bgColor];*/
+    NSString* bgColorString = [self.settings objectForKey:[@"BackgroundColor" lowercaseString]];
     UIColor* bgColor = [self colorFromColorString:bgColorString];
     [self.webView setBackgroundColor:bgColor];
+    
+    NSLog(@"end------viewDidLoad");
 }
 
 - (void)setLockToken:(NSInteger)lockToken
@@ -511,9 +542,13 @@
 
 - (UIView*)newCordovaViewWithFrame:(CGRect)bounds
 {
-    NSString* defaultWebViewEngineClass = [self.settings cordovaSettingForKey:@"CordovaDefaultWebViewEngine"];
-    NSString* webViewEngineClass = [self.settings cordovaSettingForKey:@"CordovaWebViewEngine"];
-
+    /*NSString* defaultWebViewEngineClass = [self.settings cordovaSettingForKey:@"CordovaDefaultWebViewEngine"];
+    NSString* webViewEngineClass = [self.settings cordovaSettingForKey:@"CordovaWebViewEngine"];*/
+    NSLog(@"newCordovaViewWithFrame------start");
+    
+    NSString* defaultWebViewEngineClass = [self.settings objectForKey:[@"CordovaDefaultWebViewEngine" lowercaseString]];
+    NSString* webViewEngineClass = [self.settings objectForKey:[@"CordovaWebViewEngine" lowercaseString]];
+    
     if (!defaultWebViewEngineClass) {
         defaultWebViewEngineClass = @"CDVUIWebViewEngine";
     }
@@ -521,21 +556,44 @@
         webViewEngineClass = defaultWebViewEngineClass;
     }
 
+    NSLog(@"newCordovaViewWithFrame------webViewEngineClass-name = %@", webViewEngineClass);
+    NSLog(@"newCordovaViewWithFrame------defaultWebViewEngineClass-name = %@", defaultWebViewEngineClass);
+    
     // Find webViewEngine
-    if (NSClassFromString(webViewEngineClass)) {
+    /*if (NSClassFromString(webViewEngineClass)) {
+        
+        NSLog(@"newCordovaViewWithFrame------webViewEngineClass = %@", webViewEngineClass);
+        
         self.webViewEngine = [[NSClassFromString(webViewEngineClass) alloc] initWithFrame:bounds];
+        
+        NSLog(@"newCordovaViewWithFrame------defaultWebViewEngineClass from webViewEngineClass = %@", self.webViewEngine);
+        
         // if a webView engine returns nil (not supported by the current iOS version) or doesn't conform to the protocol, or can't load the request, we use UIWebView
         if (!self.webViewEngine || ![self.webViewEngine conformsToProtocol:@protocol(CDVWebViewEngineProtocol)] || ![self.webViewEngine canLoadRequest:[NSURLRequest requestWithURL:self.appUrl]]) {
             self.webViewEngine = [[NSClassFromString(defaultWebViewEngineClass) alloc] initWithFrame:bounds];
+            
+            NSLog(@"newCordovaViewWithFrame------defaultWebViewEngineClass from defaultWebViewEngineClass = %@", self.webViewEngine);
         }
     } else {
         self.webViewEngine = [[NSClassFromString(defaultWebViewEngineClass) alloc] initWithFrame:bounds];
-    }
+        
+        NSLog(@"newCordovaViewWithFrame------defaultWebViewEngineClass = %@", self.webViewEngine);
+    }*/
+    
+    self.webViewEngine = [[CDVUIWebViewEngine alloc] initWithFrame:bounds];
+    
 
+    NSLog(@"newCordovaViewWithFrame------self.webViewEngine = %@", self.webViewEngine);
+    
     if ([self.webViewEngine isKindOfClass:[CDVPlugin class]]) {
+        
+        NSLog(@"newCordovaViewWithFrame------registerPlugin");
+        
         [self registerPlugin:(CDVPlugin*)self.webViewEngine withClassName:webViewEngineClass];
     }
 
+    NSLog(@"newCordovaViewWithFrame------end");
+    
     return self.webViewEngine.engineWebView;
 }
 
@@ -548,12 +606,15 @@
     NSString* localBaseUserAgent;
     if (self.baseUserAgent != nil) {
         localBaseUserAgent = self.baseUserAgent;
-    } else if ([self.settings cordovaSettingForKey:@"OverrideUserAgent"] != nil) {
-        localBaseUserAgent = [self.settings cordovaSettingForKey:@"OverrideUserAgent"];
+    } else if ([self.settings objectForKey:[@"OverrideUserAgent" lowercaseString]] != nil) {
+    /*} else if ([self.settings cordovaSettingForKey:@"OverrideUserAgent"] != nil) {
+        localBaseUserAgent = [self.settings cordovaSettingForKey:@"OverrideUserAgent"];*/
+        localBaseUserAgent = [self.settings objectForKey:[@"OverrideUserAgent" lowercaseString]];
     } else {
         localBaseUserAgent = [CDVUserAgentUtil originalUserAgent];
     }
-    NSString* appendUserAgent = [self.settings cordovaSettingForKey:@"AppendUserAgent"];
+    /*NSString* appendUserAgent = [self.settings cordovaSettingForKey:@"AppendUserAgent"];*/
+    NSString* appendUserAgent = [self.settings objectForKey:[@"AppendUserAgent" lowercaseString]];
     if (appendUserAgent) {
         _userAgent = [NSString stringWithFormat:@"%@ %@", localBaseUserAgent, appendUserAgent];
     } else {
@@ -660,8 +721,34 @@
     }
 
     id obj = [self.pluginObjects objectForKey:className];
+    NSLog(@"getCommandInstance will load className = %@", className);
+    
     if (!obj) {
-        obj = [[NSClassFromString(className)alloc] initWithWebViewEngine:_webViewEngine];
+
+        if ([className isEqualToString:[@"CDVHandleOpenURL" lowercaseString]]) {
+            
+            obj = [[CDVHandleOpenURL alloc] initWithWebViewEngine:_webViewEngine];
+            NSLog(@"getCommandInstance loaded CDVHandleOpenURL");
+            
+        } else if ([className isEqualToString:[@"CDVGestureHandler" lowercaseString]]) {
+            
+            obj = [[CDVGestureHandler alloc] initWithWebViewEngine:_webViewEngine];
+            NSLog(@"getCommandInstance loaded CDVGestureHandler");
+            
+        } else if ([className isEqualToString:[@"CDVIntentAndNavigationFilter" lowercaseString]]) {
+            
+            obj = [[CDVIntentAndNavigationFilter alloc] initWithWebViewEngine:_webViewEngine];
+            NSLog(@"getCommandInstance loaded CDVIntentAndNavigationFilter");
+            
+        } else if ([className isEqualToString:[@"CDVRemoteInjectionPlugin" lowercaseString]]) {
+            
+            obj = [[CDVRemoteInjectionPlugin alloc] initWithWebViewEngine:_webViewEngine];
+            NSLog(@"getCommandInstance loaded CDVRemoteInjection");
+            
+        }
+
+        if (!obj)
+            obj = [[NSClassFromString(className) alloc] initWithWebViewEngine:_webViewEngine];
 
         if (obj != nil) {
             [self registerPlugin:obj withClassName:className];

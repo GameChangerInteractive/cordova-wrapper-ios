@@ -30,14 +30,14 @@
             "cordova-plugin-insomnia": {},
             "cordova-plugin-vibration": {},
             "cordova-plugin-dialogs": {},
-            "cordova-plugin-remote-injection": {},
             "cordova-plugin-inappbrowser": {},
             "cordova-plugin-ios-camera-permissions": {
                 "CAMERA_USAGE_DESCRIPTION": "This app needs camera access",
                 "MICROPHONE_USAGE_DESCRIPTION": "This app needs microphone access",
                 "PHOTOLIBRARY_ADD_USAGE_DESCRIPTION": "This app needs write-access to photo library",
                 "PHOTOLIBRARY_USAGE_DESCRIPTION": "This app needs read/write-access photo library access"
-            }
+            },
+            "cordova-plugin-remote-injection": {}
         },
         "platforms": [
             "ios"

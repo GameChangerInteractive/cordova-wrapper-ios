@@ -54,9 +54,9 @@
     self.window.autoresizesSubviews = YES;
 
     // only set if not already set in subclass
-    if (self.viewController == nil) {
+    /*if (self.viewController == nil) {
         self.viewController = [[CDVViewController alloc] init];
-    }
+    }*/
 
     // Set your app's start page by setting the <content src='foo.html' /> tag in config.xml.
     // If necessary, uncomment the line below to override it.
@@ -65,7 +65,7 @@
     // NOTE: To customize the view's frame size (which defaults to full screen), override
     // [self.viewController viewWillAppear:] in your view controller.
 
-    self.window.rootViewController = self.viewController;
+    /*self.window.rootViewController = self.viewController;*/
     [self.window makeKeyAndVisible];
 
     return YES;

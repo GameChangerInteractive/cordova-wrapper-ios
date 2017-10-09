@@ -100,20 +100,58 @@
 {
     UIWebView* uiWebView = (UIWebView*)_engineWebView;
 
-    uiWebView.scalesPageToFit = [settings cordovaBoolSettingForKey:@"EnableViewportScale" defaultValue:NO];
+    /*uiWebView.scalesPageToFit = [settings cordovaBoolSettingForKey:@"EnableViewportScale" defaultValue:NO];
     uiWebView.allowsInlineMediaPlayback = [settings cordovaBoolSettingForKey:@"AllowInlineMediaPlayback" defaultValue:NO];
     uiWebView.mediaPlaybackRequiresUserAction = [settings cordovaBoolSettingForKey:@"MediaPlaybackRequiresUserAction" defaultValue:YES];
     uiWebView.mediaPlaybackAllowsAirPlay = [settings cordovaBoolSettingForKey:@"MediaPlaybackAllowsAirPlay" defaultValue:YES];
     uiWebView.keyboardDisplayRequiresUserAction = [settings cordovaBoolSettingForKey:@"KeyboardDisplayRequiresUserAction" defaultValue:YES];
     uiWebView.suppressesIncrementalRendering = [settings cordovaBoolSettingForKey:@"SuppressesIncrementalRendering" defaultValue:NO];
     uiWebView.gapBetweenPages = [settings cordovaFloatSettingForKey:@"GapBetweenPages" defaultValue:0.0];
-    uiWebView.pageLength = [settings cordovaFloatSettingForKey:@"PageLength" defaultValue:0.0];
+    uiWebView.pageLength = [settings cordovaFloatSettingForKey:@"PageLength" defaultValue:0.0];*/
+    
+    //default value
+    uiWebView.scalesPageToFit = NO;
+    uiWebView.allowsInlineMediaPlayback = NO;
+    uiWebView.mediaPlaybackRequiresUserAction = YES;
+    uiWebView.mediaPlaybackAllowsAirPlay = YES;
+    uiWebView.keyboardDisplayRequiresUserAction = YES;
+    uiWebView.suppressesIncrementalRendering = NO;
+    uiWebView.gapBetweenPages = 0.0;
+    uiWebView.pageLength = 0.0;
+    
+    if ([settings objectForKey:[@"EnableViewportScale" lowercaseString]] != nil)
+        uiWebView.scalesPageToFit = [settings objectForKey:[@"EnableViewportScale" lowercaseString]];
+    
+    if ([settings objectForKey:[@"AllowInlineMediaPlayback" lowercaseString]] != nil)
+        uiWebView.allowsInlineMediaPlayback = [settings objectForKey:[@"AllowInlineMediaPlayback" lowercaseString]];
+    
+    if ([settings objectForKey:[@"MediaPlaybackRequiresUserAction" lowercaseString]] != nil)
+        uiWebView.mediaPlaybackRequiresUserAction = [settings objectForKey:[@"MediaPlaybackRequiresUserAction" lowercaseString]];
+    
+    if ([settings objectForKey:[@"MediaPlaybackAllowsAirPlay" lowercaseString]] != nil)
+        uiWebView.mediaPlaybackAllowsAirPlay = [settings objectForKey:[@"MediaPlaybackAllowsAirPlay" lowercaseString]];
+    
+    if ([settings objectForKey:[@"KeyboardDisplayRequiresUserAction" lowercaseString]] != nil)
+        uiWebView.keyboardDisplayRequiresUserAction = [settings objectForKey:[@"KeyboardDisplayRequiresUserAction" lowercaseString]];
+    
+    if ([settings objectForKey:[@"SuppressesIncrementalRendering" lowercaseString]] != nil)
+        uiWebView.suppressesIncrementalRendering = [settings objectForKey:[@"SuppressesIncrementalRendering" lowercaseString]];
+    
+    if ([settings objectForKey:[@"GapBetweenPages" lowercaseString]] != nil)
+        uiWebView.gapBetweenPages = [[settings objectForKey:[@"GapBetweenPages" lowercaseString]] floatValue];
+    
+    if ([settings objectForKey:[@"PageLength" lowercaseString]] != nil)
+        uiWebView.pageLength = [[settings objectForKey:[@"PageLength" lowercaseString]] floatValue];
 
     id prefObj = nil;
 
     // By default, DisallowOverscroll is false (thus bounce is allowed)
-    BOOL bounceAllowed = !([settings cordovaBoolSettingForKey:@"DisallowOverscroll" defaultValue:NO]);
-
+    /*BOOL bounceAllowed = !([settings cordovaBoolSettingForKey:@"DisallowOverscroll" defaultValue:NO]);*/
+    
+    BOOL bounceAllowed = YES;
+    if ([settings objectForKey:[@"DisallowOverscroll" lowercaseString]] != nil)
+        bounceAllowed = !([settings objectForKey:[@"DisallowOverscroll" lowercaseString]]);
+    
     // prevent webView from bouncing
     if (!bounceAllowed) {
         if ([uiWebView respondsToSelector:@selector(scrollView)]) {
@@ -127,13 +165,15 @@
         }
     }
 
-    NSString* decelerationSetting = [settings cordovaSettingForKey:@"UIWebViewDecelerationSpeed"];
+    /*NSString* decelerationSetting = [settings cordovaSettingForKey:@"UIWebViewDecelerationSpeed"];*/
+    NSString* decelerationSetting = [settings objectForKey:[@"UIWebViewDecelerationSpeed" lowercaseString]];
     if (![@"fast" isEqualToString:decelerationSetting]) {
         [uiWebView.scrollView setDecelerationRate:UIScrollViewDecelerationRateNormal];
     }
 
     NSInteger paginationBreakingMode = 0; // default - UIWebPaginationBreakingModePage
-    prefObj = [settings cordovaSettingForKey:@"PaginationBreakingMode"];
+    /*prefObj = [settings cordovaSettingForKey:@"PaginationBreakingMode"];*/
+    prefObj = [settings objectForKey:[@"PaginationBreakingMode" lowercaseString]];
     if (prefObj != nil) {
         NSArray* validValues = @[@"page", @"column"];
         NSString* prefValue = [validValues objectAtIndex:0];
@@ -150,7 +190,8 @@
     uiWebView.paginationBreakingMode = paginationBreakingMode;
 
     NSInteger paginationMode = 0; // default - UIWebPaginationModeUnpaginated
-    prefObj = [settings cordovaSettingForKey:@"PaginationMode"];
+    /*prefObj = [settings cordovaSettingForKey:@"PaginationMode"];*/
+    prefObj = [settings objectForKey:[@"PaginationMode" lowercaseString]];
     if (prefObj != nil) {
         NSArray* validValues = @[@"unpaginated", @"lefttoright", @"toptobottom", @"bottomtotop", @"righttoleft"];
         NSString* prefValue = [validValues objectAtIndex:0];

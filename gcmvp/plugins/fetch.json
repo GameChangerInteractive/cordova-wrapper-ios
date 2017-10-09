@@ -55,14 +55,6 @@
         "is_top_level": true,
         "variables": {}
     },
-    "cordova-plugin-remote-injection": {
-        "source": {
-            "type": "registry",
-            "id": "cordova-plugin-remote-injection"
-        },
-        "is_top_level": true,
-        "variables": {}
-    },
     "cordova-plugin-inappbrowser": {
         "source": {
             "type": "registry",
@@ -75,6 +67,14 @@
         "source": {
             "type": "registry",
             "id": "cordova-plugin-ios-camera-permissions"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "cordova-plugin-remote-injection": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-remote-injection"
         },
         "is_top_level": true,
         "variables": {}

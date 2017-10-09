@@ -98,8 +98,12 @@
 
 - (BOOL)webView:(UIWebView*)theWebView shouldStartLoadWithRequest:(NSURLRequest*)request navigationType:(UIWebViewNavigationType)navigationType
 {
+    NSLog(@"CDVUIWebViewNavigationDelegate------shouldStartLoadWithRequest");
+    
     NSURL* url = [request URL];
     CDVViewController* vc = (CDVViewController*)self.enginePlugin.viewController;
+
+    NSLog(@"CDVUIWebViewNavigationDelegate------url = %@", url);
 
     /*
      * Execute any commands queued with cordova.exec() on the JS side.

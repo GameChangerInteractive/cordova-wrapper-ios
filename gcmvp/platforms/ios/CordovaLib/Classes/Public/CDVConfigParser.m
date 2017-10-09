@@ -46,6 +46,8 @@
 
 - (void)parser:(NSXMLParser*)parser didStartElement:(NSString*)elementName namespaceURI:(NSString*)namespaceURI qualifiedName:(NSString*)qualifiedName attributes:(NSDictionary*)attributeDict
 {
+    NSLog(@"CDVConfigParser---Name = %@, val = %@", attributeDict[@"name"], attributeDict[@"value"]);
+    
     if ([elementName isEqualToString:@"preference"]) {
         settings[[attributeDict[@"name"] lowercaseString]] = attributeDict[@"value"];
     } else if ([elementName isEqualToString:@"feature"]) { // store feature name to use with correct parameter set
@@ -60,6 +62,8 @@
         BOOL attribIsOnload = [@"true" isEqualToString :[attributeDict[@"onload"] lowercaseString]];
         if (paramIsOnload || attribIsOnload) {
             [self.startupPluginNames addObject:featureName];
+            
+            NSLog(@"CDVConfigParser---startupPluginNames = %@", featureName);
         }
     } else if ([elementName isEqualToString:@"content"]) {
         self.startPage = attributeDict[@"src"];

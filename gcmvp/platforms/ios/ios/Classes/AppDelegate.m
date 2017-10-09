@@ -32,9 +32,16 @@
 
 - (BOOL)application:(UIApplication*)application didFinishLaunchingWithOptions:(NSDictionary*)launchOptions
 {
+    [super application:application didFinishLaunchingWithOptions:launchOptions];
+    
     self.viewController = [[GcmvpCordovaViewController alloc] init];
     [self.viewController setWwwFolderName:@"https://games.gamechanger.studio/develop"];
-    return [super application:application didFinishLaunchingWithOptions:launchOptions];
+//    [self.viewController setWwwFolderName:@"https://www.gcmvp.com"];
+    
+    AppDelegate* app = (AppDelegate*)[UIApplication sharedApplication].delegate;
+    app.window.rootViewController = self.viewController;
+    
+    return YES;
 }
 
 @end

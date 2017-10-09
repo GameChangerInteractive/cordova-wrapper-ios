@@ -61,9 +61,9 @@ module.exports.metadata =
     "cordova-plugin-insomnia": "4.3.0",
     "cordova-plugin-vibration": "2.1.5",
     "cordova-plugin-dialogs": "1.3.3",
-    "cordova-plugin-remote-injection": "0.5.2",
     "cordova-plugin-inappbrowser": "1.7.1",
-    "cordova-plugin-ios-camera-permissions": "1.2.0"
+    "cordova-plugin-ios-camera-permissions": "1.2.0",
+    "cordova-plugin-remote-injection": "0.5.2"
 };
 // BOTTOM OF METADATA
 });
