@@ -1,19 +1,15 @@
 # wrapper-ios
 :iphone: native cordova-enabled ios webview that wraps our website
 
-<<<<<<< HEAD
-# How to import on your project.
-
-=======
 # How to import on your project
 
-[idle]: https://github.com/GameChangerInteractive/cordova-wrapper-ios/releases/download/v1.0.0/Screen.Shot.2017-10-09.at.9.43.47.AM.png  "idle"
+[idle]: https://github.com/GameChangerInteractive/cordova-wrapper-ios/blob/master/screenshot/screenshot.png  "idle"
 
-![idle snapshot][idle]
+![Snapshot][idle]
 
 # How to use on your project
 
--- (IBAction)goGameSite:(id)sender {
+- (IBAction)goGameSite:(id)sender {
 
     GcmvpCordovaViewController *gcmvp = [[GcmvpCordovaViewController alloc] init];
     
@@ -22,4 +18,3 @@
     [self.navigationController pushViewController:gcmvp animated:YES];
     
 }
->>>>>>> 60318db367ab3dd4e0f84769e4aedba4e9794e1b
