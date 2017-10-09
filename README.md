@@ -6,7 +6,7 @@
 You can import this easily to your project.
 
 # 1. on your AppDelegate.h
-
+```
 #import <UIKit/UIKit.h>
 
 #import <CoreData/CoreData.h>
@@ -22,10 +22,10 @@ You can import this easily to your project.
 -(void)saveContext;
 
 @end
-
+```
 
 # 2. on your AppDelegate.m
-
+```
 -(BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
     // Override point for customization after application launch.
@@ -37,10 +37,9 @@ You can import this easily to your project.
     
     return YES;
 }
-
+```
 # 3. on your ViewController.m
-----
-
+```
 #import "ViewController.h"
 
 #import "GcmvpCordovaWebViewController.h"
@@ -83,7 +82,7 @@ You can import this easily to your project.
 }
 
 @end
-
+```
 # Tutorial
 ----
 
