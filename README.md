@@ -7,10 +7,10 @@ You can import this easily to your project.
 
 # 1. on your AppDelegate.h
 
-<p>
-
 #import <UIKit/UIKit.h>
+
 #import <CoreData/CoreData.h>
+
 #import "CDVAppDelegate.h"
 
 @interface AppDelegate : CDVAppDelegate
@@ -19,17 +19,17 @@ You can import this easily to your project.
 
 @property (readonly, strong) NSPersistentContainer *persistentContainer;
 
-- (void)saveContext;
-
+-(void)saveContext;
 
 @end
 
-</p>
 
 # 2. on your AppDelegate.m
 
 -(BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+
     // Override point for customization after application launch.
+    
     [super application:application didFinishLaunchingWithOptions:launchOptions];
     
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
@@ -42,6 +42,7 @@ You can import this easily to your project.
 ----
 
 #import "ViewController.h"
+
 #import "GcmvpCordovaViewController.h"
 
 @interface ViewController ()
@@ -51,24 +52,34 @@ You can import this easily to your project.
 @implementation ViewController
 
 -(void)viewDidLoad {
+
     [super viewDidLoad];
+    
     // Do any additional setup after loading the view, typically from a nib.
 }
 
 
 -(void)didReceiveMemoryWarning {
+
     [super didReceiveMemoryWarning];
+    
     // Dispose of any resources that can be recreated.
 }
 
 -(void)viewWillAppear:(BOOL)animated {
+
     [self.navigationController setNavigationBarHidden:YES];
+    
 }
 
 -(IBAction)goGameSite:(id)sender {
+
     GcmvpCordovaViewController *vpController = [[GcmvpCordovaViewController alloc] init];
+    //you can set your custome url
     [vpController setWwwFolderName:@"https://games.gamechanger.studio/develop"];
+    
     [self.navigationController pushViewController:vpController animated:YES];
+    
 }
 
 @end
