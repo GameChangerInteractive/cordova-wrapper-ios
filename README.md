@@ -3,8 +3,11 @@
 
 # How to import on your project.
 
-- 1. on your AppDelegate.h
+You can import this easily to your project.
 
+# 1. on your AppDelegate.h
+
+<p>
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
 #import "CDVAppDelegate.h"
@@ -19,10 +22,11 @@
 
 
 @end
+</p>
 
-- 2. on your AppDelegate.m
+# 2. on your AppDelegate.m
 
-(BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+-(BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     [super application:application didFinishLaunchingWithOptions:launchOptions];
     
@@ -32,7 +36,8 @@
     return YES;
 }
 
-- 3. on your ViewController.m
+# 3. on your ViewController.m
+----
 
 #import "ViewController.h"
 #import "GcmvpCordovaViewController.h"
@@ -43,22 +48,22 @@
 
 @implementation ViewController
 
-(void)viewDidLoad {
+-(void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
 }
 
 
-(void)didReceiveMemoryWarning {
+-(void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-(void)viewWillAppear:(BOOL)animated {
+-(void)viewWillAppear:(BOOL)animated {
     [self.navigationController setNavigationBarHidden:YES];
 }
 
-(IBAction)goGameSite:(id)sender {
+-(IBAction)goGameSite:(id)sender {
     GcmvpCordovaViewController *vpController = [[GcmvpCordovaViewController alloc] init];
     [vpController setWwwFolderName:@"https://games.gamechanger.studio/develop"];
     [self.navigationController pushViewController:vpController animated:YES];
@@ -66,9 +71,7 @@
 
 @end
 
-# please see this video tutorial.
-
-Tutorial
+# Tutorial
 ----
 
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=bbP4V-B-Rqc
