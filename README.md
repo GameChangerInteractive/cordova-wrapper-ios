@@ -3,10 +3,8 @@
 
 # How to import on your project
 
-<a href="https://github.com/GameChangerInteractive/cordova-wrapper-ios/releases/download/v1.0.0/Screen.Shot.2017-10-09.at.9.43.47.AM.png" target="_blank">
 <img src="https://github.com/GameChangerInteractive/cordova-wrapper-ios/releases/download/v1.0.0/Screen.Shot.2017-10-09.at.9.43.47.AM.png" 
-alt="ScreenShot" border="10" />
-</a>
+alt="ScreenShot"/>
 
 # How to use on your project
 
