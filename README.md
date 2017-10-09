@@ -8,6 +8,7 @@ You can import this easily to your project.
 # 1. on your AppDelegate.h
 
 <p>
+
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
 #import "CDVAppDelegate.h"
@@ -22,6 +23,7 @@ You can import this easily to your project.
 
 
 @end
+
 </p>
 
 # 2. on your AppDelegate.m
