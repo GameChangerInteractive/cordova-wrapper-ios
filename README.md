@@ -3,13 +3,12 @@
 
 # How to import on your project
 
-<a 
-" target="_blank"><img src="https://github.com/GameChangerInteractive/cordova-wrapper-ios/releases/download/v1.0.0/Screen.Shot.2017-10-09.at.9.43.47.AM.png" 
-alt="example" border="10" /></a>
+<a href="https://github.com/GameChangerInteractive/cordova-wrapper-ios/releases/download/v1.0.0/Screen.Shot.2017-10-09.at.9.43.47.AM.png
+" target="_blank"></a>
 
 # How to use on your project
 
-- - (IBAction)goGameSite:(id)sender {
+- -- (IBAction)goGameSite:(id)sender {
 
     GcmvpCordovaViewController *gcmvp = [[GcmvpCordovaViewController alloc] init];
     
