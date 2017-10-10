@@ -20,13 +20,13 @@
 #import <Foundation/Foundation.h>
 
 @class CDVInvokedUrlCommand;
-@class CDVViewController;
+@class GcmvpCDVViewController;
 
-@interface CDVCommandQueue : NSObject
+@interface GcmvpCDVCommandQueue : NSObject
 
 @property (nonatomic, readonly) BOOL currentlyExecuting;
 
-- (id)initWithViewController:(CDVViewController*)viewController;
+- (id)initWithViewController:(GcmvpCDVViewController*)viewController;
 - (void)dispose;
 
 - (void)resetRequestId;

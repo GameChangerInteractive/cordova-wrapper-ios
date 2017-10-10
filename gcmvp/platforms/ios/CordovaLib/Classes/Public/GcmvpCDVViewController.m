@@ -26,15 +26,21 @@
 #import <AVFoundation/AVFoundation.h>
 #import "NSDictionary+CordovaPreferences.h"
 #import "CDVLocalStorage.h"
-#import "CDVCommandDelegateImpl.h"
+#import "GcmvpCDVCommandDelegateImpl.h"
 #import <Foundation/NSCharacterSet.h>
 #import "CDVUIWebViewEngine.h"
 #import "CDVHandleOpenURL.h"
 #import "CDVGestureHandler.h"
 #import "CDVIntentAndNavigationFilter.h"
 #import "CDVRemoteInjection.h"
+#import "Insomnia.h"
+#import "CDVVibration.h"
+#import "AudioReceiver.h"
+#import "Flashlight.h"
+#import "CDVNotification.h"
+#import "CDVInAppBrowser.h"
 
-@interface CDVViewController () {
+@interface GcmvpCDVViewController () {
     NSInteger _userAgentLockToken;
 }
 
@@ -51,7 +57,7 @@
 
 @end
 
-@implementation CDVViewController
+@implementation GcmvpCDVViewController
 
 @synthesize supportedOrientations;
 @synthesize pluginObjects, pluginsMap, startupPluginNames;
@@ -65,8 +71,8 @@
 - (void)__init
 {
     if ((self != nil) && !self.initialized) {
-        _commandQueue = [[CDVCommandQueue alloc] initWithViewController:self];
-        _commandDelegate = [[CDVCommandDelegateImpl alloc] initWithViewController:self];
+        _commandQueue = [[GcmvpCDVCommandQueue alloc] initWithViewController:self];
+        _commandDelegate = [[GcmvpCDVCommandDelegateImpl alloc] initWithViewController:self];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onAppWillTerminate:)
                                                      name:UIApplicationWillTerminateNotification object:nil];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onAppWillResignActive:)
@@ -725,25 +731,55 @@
     
     if (!obj) {
 
-        if ([className isEqualToString:[@"CDVHandleOpenURL" lowercaseString]]) {
+        if ([className isEqualToString:[@"Gcmvp_CDVHandleOpenURL" lowercaseString]]) {
             
             obj = [[CDVHandleOpenURL alloc] initWithWebViewEngine:_webViewEngine];
-            NSLog(@"getCommandInstance loaded CDVHandleOpenURL");
+            NSLog(@"getCommandInstance loaded Gcmvp_CDVHandleOpenURL");
             
-        } else if ([className isEqualToString:[@"CDVGestureHandler" lowercaseString]]) {
+        } else if ([className isEqualToString:[@"Gcmvp_CDVGestureHandler" lowercaseString]]) {
             
             obj = [[CDVGestureHandler alloc] initWithWebViewEngine:_webViewEngine];
-            NSLog(@"getCommandInstance loaded CDVGestureHandler");
+            NSLog(@"getCommandInstance loaded Gcmvp_CDVGestureHandler");
             
-        } else if ([className isEqualToString:[@"CDVIntentAndNavigationFilter" lowercaseString]]) {
+        } else if ([className isEqualToString:[@"Gcmvp_CDVIntentAndNavigationFilter" lowercaseString]]) {
             
             obj = [[CDVIntentAndNavigationFilter alloc] initWithWebViewEngine:_webViewEngine];
-            NSLog(@"getCommandInstance loaded CDVIntentAndNavigationFilter");
+            NSLog(@"getCommandInstance loaded Gcmvp_CDVIntentAndNavigationFilter");
             
-        } else if ([className isEqualToString:[@"CDVRemoteInjectionPlugin" lowercaseString]]) {
+        } else if ([className isEqualToString:[@"Gcmvp_CDVRemoteInjectionPlugin" lowercaseString]]) {
             
             obj = [[CDVRemoteInjectionPlugin alloc] initWithWebViewEngine:_webViewEngine];
-            NSLog(@"getCommandInstance loaded CDVRemoteInjection");
+            NSLog(@"getCommandInstance loaded Gcmvp_CDVRemoteInjection");
+            
+        } else if ([className isEqualToString:[@"Gcmvp_Insomnia" lowercaseString]]) {
+            
+            obj = [[Insomnia alloc] init];
+            NSLog(@"getCommandInstance loaded Gcmvp_Insomnia");
+            
+        } else if ([className isEqualToString:[@"Gcmvp_CDVVibration" lowercaseString]]) {
+            
+            obj = [[CDVVibration alloc] init];
+            NSLog(@"getCommandInstance loaded Gcmvp_CDVVibration");
+            
+        } else if ([className isEqualToString:[@"Gcmvp_CDVAudioInputCapture" lowercaseString]]) {
+            
+            obj = [[AudioReceiver alloc] init];
+            NSLog(@"getCommandInstance loaded Gcmvp_CDVAudioInputCapture");
+            
+        } else if ([className isEqualToString:[@"Gcmvp_Flashlight" lowercaseString]]) {
+            
+            obj = [[Flashlight alloc] init];
+            NSLog(@"getCommandInstance loaded Gcmvp_Flashlight");
+            
+        } else if ([className isEqualToString:[@"Gcmvp_CDVNotification" lowercaseString]]) {
+            
+            obj = [[CDVNotification alloc] initWithWebViewEngine:_webViewEngine];
+            NSLog(@"getCommandInstance loaded Gcmvp_CDVNotification");
+            
+        } else if ([className isEqualToString:[@"Gcmvp_CDVInAppBrowser" lowercaseString]]) {
+            
+            obj = [[CDVInAppBrowser alloc] initWithWebViewEngine:_webViewEngine];
+            NSLog(@"getCommandInstance loaded Gcmvp_CDVInAppBrowser");
             
         }
 

@@ -165,7 +165,21 @@ id messageFromMultipart(NSArray* theMessages)
     id arguments = (self.message == nil ? [NSNull null] : self.message);
     NSArray* argumentsWrappedInArray = [NSArray arrayWithObject:arguments];
 
-    NSString* argumentsJSON = [argumentsWrappedInArray cdv_JSONString];
+    NSString* argumentsJSON = nil;
+    {
+        NSError* error = nil;
+        NSData* jsonData = [NSJSONSerialization dataWithJSONObject: argumentsWrappedInArray
+                                                           options:0
+                                                             error:&error];
+        
+        if (error != nil) {
+            NSLog(@"NSArray JSONString error: %@", [error localizedDescription]);
+        } else {
+            argumentsJSON = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+        }
+    }
+    
+//    NSString* argumentsJSON = [argumentsWrappedInArray cdv_JSONString];
 
     argumentsJSON = [argumentsJSON substringWithRange:NSMakeRange(1, [argumentsJSON length] - 2)];
 

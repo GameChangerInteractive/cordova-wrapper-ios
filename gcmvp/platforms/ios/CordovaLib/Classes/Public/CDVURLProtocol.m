@@ -22,8 +22,8 @@
 #import <AssetsLibrary/ALAssetsLibrary.h>
 #import <MobileCoreServices/MobileCoreServices.h>
 #import "CDVURLProtocol.h"
-#import "CDVCommandQueue.h"
-#import "CDVViewController.h"
+#import "GcmvpCDVCommandQueue.h"
+#import "GcmvpCDVViewController.h"
 
 // Contains a set of NSNumbers of addresses of controllers. It doesn't store
 // the actual pointer to avoid retaining.

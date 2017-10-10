@@ -22,18 +22,18 @@
 #import "CDVAvailability.h"
 #import "CDVInvokedUrlCommand.h"
 #import "CDVCommandDelegate.h"
-#import "CDVCommandQueue.h"
+#import "GcmvpCDVCommandQueue.h"
 #import "CDVScreenOrientationDelegate.h"
 #import "CDVPlugin.h"
 #import "CDVWebViewEngineProtocol.h"
 
-@interface CDVViewController : UIViewController <CDVScreenOrientationDelegate>{
+@interface GcmvpCDVViewController : UIViewController <CDVScreenOrientationDelegate>{
     @protected
     id <CDVWebViewEngineProtocol> _webViewEngine;
     @protected
     id <CDVCommandDelegate> _commandDelegate;
     @protected
-    CDVCommandQueue* _commandQueue;
+    GcmvpCDVCommandQueue* _commandQueue;
     NSString* _userAgent;
 }
 
@@ -47,7 +47,7 @@
 @property (nonatomic, readwrite, copy) NSString* configFile;
 @property (nonatomic, readwrite, copy) NSString* wwwFolderName;
 @property (nonatomic, readwrite, copy) NSString* startPage;
-@property (nonatomic, readonly, strong) CDVCommandQueue* commandQueue;
+@property (nonatomic, readonly, strong) GcmvpCDVCommandQueue* commandQueue;
 @property (nonatomic, readonly, strong) id <CDVWebViewEngineProtocol> webViewEngine;
 @property (nonatomic, readonly, strong) id <CDVCommandDelegate> commandDelegate;
 

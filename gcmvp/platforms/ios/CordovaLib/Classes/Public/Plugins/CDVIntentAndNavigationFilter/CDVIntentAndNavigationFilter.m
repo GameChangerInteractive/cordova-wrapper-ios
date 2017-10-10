@@ -66,8 +66,8 @@
 
 - (void)pluginInitialize
 {
-    if ([self.viewController isKindOfClass:[CDVViewController class]]) {
-        [(CDVViewController*)self.viewController parseSettingsWithParser:self];
+    if ([self.viewController isKindOfClass:[GcmvpCDVViewController class]]) {
+        [(GcmvpCDVViewController*)self.viewController parseSettingsWithParser:self];
     }
 }
 

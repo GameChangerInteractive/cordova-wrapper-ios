@@ -1,18 +1,18 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="com.it.gcmvp" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <feature name="LocalStorage">
-        <param name="ios-package" value="CDVLocalStorage" />
+        <param name="ios-package" value="Gcmvp_CDVLocalStorage" />
     </feature>
     <feature name="HandleOpenUrl">
-        <param name="ios-package" value="CDVHandleOpenURL" />
+        <param name="ios-package" value="Gcmvp_CDVHandleOpenURL" />
         <param name="onload" value="true" />
     </feature>
     <feature name="IntentAndNavigationFilter">
-        <param name="ios-package" value="CDVIntentAndNavigationFilter" />
+        <param name="ios-package" value="Gcmvp_CDVIntentAndNavigationFilter" />
         <param name="onload" value="true" />
     </feature>
     <feature name="GestureHandler">
-        <param name="ios-package" value="CDVGestureHandler" />
+        <param name="ios-package" value="Gcmvp_CDVGestureHandler" />
         <param name="onload" value="true" />
     </feature>
     <name>ios</name>
@@ -46,25 +46,25 @@
     <preference name="PaginationBreakingMode" value="page" />
     <preference name="PaginationMode" value="unpaginated" />
     <feature name="AudioInputCapture">
-        <param name="ios-package" value="CDVAudioInputCapture" />
+        <param name="ios-package" value="Gcmvp_CDVAudioInputCapture" />
     </feature>
     <feature name="Flashlight">
-        <param name="ios-package" value="Flashlight" />
+        <param name="ios-package" value="Gcmvp_Flashlight" />
     </feature>
     <feature name="Insomnia">
-        <param name="ios-package" value="Insomnia" />
+        <param name="ios-package" value="Gcmvp_Insomnia" />
     </feature>
     <feature name="Vibration">
-        <param name="ios-package" value="CDVVibration" />
+        <param name="ios-package" value="Gcmvp_CDVVibration" />
     </feature>
     <feature name="Notification">
-        <param name="ios-package" value="CDVNotification" />
+        <param name="ios-package" value="Gcmvp_CDVNotification" />
     </feature>
     <feature name="InAppBrowser">
-        <param name="ios-package" value="CDVInAppBrowser" />
+        <param name="ios-package" value="Gcmvp_CDVInAppBrowser" />
     </feature>
     <feature name="RemoteInjection">
-        <param name="ios-package" value="CDVRemoteInjectionPlugin" />
+        <param name="ios-package" value="Gcmvp_CDVRemoteInjectionPlugin" />
         <param name="onload" value="true" />
     </feature>
 </widget>

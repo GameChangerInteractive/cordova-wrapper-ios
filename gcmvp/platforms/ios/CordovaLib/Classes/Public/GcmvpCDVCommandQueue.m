@@ -18,9 +18,9 @@
  */
 
 #include <objc/message.h>
-#import "CDVCommandQueue.h"
-#import "CDVViewController.h"
-#import "CDVCommandDelegateImpl.h"
+#import "GcmvpCDVCommandQueue.h"
+#import "GcmvpCDVViewController.h"
+#import "GcmvpCDVCommandDelegateImpl.h"
 #import "CDVJSON_private.h"
 #import "CDVDebug.h"
 
@@ -29,22 +29,22 @@ static const NSInteger JSON_SIZE_FOR_MAIN_THREAD = 4 * 1024; // Chosen arbitrari
 // Execute multiple commands in one go until this many seconds have passed.
 static const double MAX_EXECUTION_TIME = .008; // Half of a 60fps frame.
 
-@interface CDVCommandQueue () {
+@interface GcmvpCDVCommandQueue () {
     NSInteger _lastCommandQueueFlushRequestId;
-    __weak CDVViewController* _viewController;
+    __weak GcmvpCDVViewController* _viewController;
     NSMutableArray* _queue;
     NSTimeInterval _startExecutionTime;
 }
 @end
 
-@implementation CDVCommandQueue
+@implementation GcmvpCDVCommandQueue
 
 - (BOOL)currentlyExecuting
 {
     return _startExecutionTime > 0;
 }
 
-- (id)initWithViewController:(CDVViewController*)viewController
+- (id)initWithViewController:(GcmvpCDVViewController*)viewController
 {
     self = [super init];
     if (self != nil) {
@@ -71,10 +71,32 @@ static const double MAX_EXECUTION_TIME = .008; // Half of a 60fps frame.
         NSMutableArray* commandBatchHolder = [[NSMutableArray alloc] init];
         [_queue addObject:commandBatchHolder];
         if ([batchJSON length] < JSON_SIZE_FOR_MAIN_THREAD) {
-            [commandBatchHolder addObject:[batchJSON cdv_JSONObject]];
+            
+            NSError* error = nil;
+            id jsonVal = [NSJSONSerialization JSONObjectWithData:[batchJSON dataUsingEncoding:NSUTF8StringEncoding]
+                                                        options:NSJSONReadingMutableContainers
+                                                          error:&error];
+            
+            if (error != nil) {
+                NSLog(@"NSString JSONObject error: %@", [error localizedDescription]);
+            }
+
+            [commandBatchHolder addObject:jsonVal];
+//            [commandBatchHolder addObject:[batchJSON cdv_JSONObject]];
         } else {
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^() {
-                NSMutableArray* result = [batchJSON cdv_JSONObject];
+                
+                NSError* error = nil;
+                id jsonVal = [NSJSONSerialization JSONObjectWithData:[batchJSON dataUsingEncoding:NSUTF8StringEncoding]
+                                                               options:NSJSONReadingMutableContainers
+                                                                 error:&error];
+                
+                if (error != nil) {
+                    NSLog(@"NSString JSONObject error: %@", [error localizedDescription]);
+                }
+                
+//                NSMutableArray* result = [batchJSON cdv_JSONObject];
+                NSMutableArray* result = jsonVal;
                 @synchronized(commandBatchHolder) {
                     [commandBatchHolder addObject:result];
                 }
@@ -86,7 +108,7 @@ static const double MAX_EXECUTION_TIME = .008; // Half of a 60fps frame.
 
 - (void)fetchCommandsFromJs
 {
-    __weak CDVCommandQueue* weakSelf = self;
+    __weak GcmvpCDVCommandQueue* weakSelf = self;
     NSString* js = @"cordova.require('cordova/exec').nativeFetchMessages()";
 
     [_viewController.webViewEngine evaluateJavaScript:js
@@ -124,7 +146,20 @@ static const double MAX_EXECUTION_TIME = .008; // Half of a 60fps frame.
             while ([commandBatch count] > 0) {
                 @autoreleasepool {
                     // Execute the commands one-at-a-time.
-                    NSArray* jsonEntry = [commandBatch cdv_dequeue];
+                    
+                    if ([commandBatch count] == 0) {
+                        continue;
+                    }
+                    
+                    id head = [commandBatch objectAtIndex:0];
+                    if (head != nil) {
+                        // [[head retain] autorelease]; ARC - the __autoreleasing on the return value should so the same thing
+                        [commandBatch removeObjectAtIndex:0];
+                    }
+                    
+                    NSArray* jsonEntry = head;
+                    
+//                    NSArray* jsonEntry = [commandBatch cdv_dequeue];
                     if ([commandBatch count] == 0) {
                         [_queue removeObjectAtIndex:0];
                     }
@@ -133,7 +168,21 @@ static const double MAX_EXECUTION_TIME = .008; // Half of a 60fps frame.
 
                     if (![self execute:command]) {
 #ifdef DEBUG
-                            NSString* commandJson = [jsonEntry cdv_JSONString];
+                        NSString* commandJson = nil;
+                        {
+                            NSError* error = nil;
+                            NSData* jsonData = [NSJSONSerialization dataWithJSONObject:jsonEntry
+                                                                               options:0
+                                                                                 error:&error];
+                            
+                            if (error != nil) {
+                                NSLog(@"NSArray JSONString error: %@", [error localizedDescription]);
+                            } else {
+                                commandJson = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+                            }
+                        }
+                        
+//                            NSString* commandJson = [jsonEntry cdv_JSONString];
                             static NSUInteger maxLogLength = 1024;
                             NSString* commandString = ([commandJson length] > maxLogLength) ?
                                 [NSString stringWithFormat : @"%@[...]", [commandJson substringToIndex:maxLogLength]] :
@@ -176,6 +225,7 @@ static const double MAX_EXECUTION_TIME = .008; // Half of a 60fps frame.
     // Find the proper selector to call.
     NSString* methodName = [NSString stringWithFormat:@"%@:", command.methodName];
     SEL normalSelector = NSSelectorFromString(methodName);
+    NSLog(@"respondsToSelector obj = %@, methodName = %@", obj, methodName);
     if ([obj respondsToSelector:normalSelector]) {
         // [obj performSelector:normalSelector withObject:command];
         ((void (*)(id, SEL, id))objc_msgSend)(obj, normalSelector, command);

@@ -20,7 +20,7 @@
 #import <Foundation/Foundation.h>
 #import "CDVAvailability.h"
 
-@class CDVViewController;
+@class GcmvpCDVViewController;
 
 @interface CDVURLProtocol : NSURLProtocol {}
 

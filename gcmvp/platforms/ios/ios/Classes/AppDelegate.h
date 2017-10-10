@@ -25,9 +25,9 @@
 //  Copyright ___ORGANIZATIONNAME___ ___YEAR___. All rights reserved.
 //
 
-#import <Cordova/CDVViewController.h>
-#import <Cordova/CDVAppDelegate.h>
+#import <Cordova/GcmvpCDVViewController.h>
+#import <Cordova/GcmvpCDVAppDelegate.h>
 
-@interface AppDelegate : CDVAppDelegate {}
+@interface AppDelegate : GcmvpCDVAppDelegate {}
 
 @end

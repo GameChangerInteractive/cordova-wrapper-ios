@@ -35,8 +35,8 @@
     [super application:application didFinishLaunchingWithOptions:launchOptions];
     
     self.viewController = [[GcmvpCordovaWebViewController alloc] init];
-//    [self.viewController setWwwFolderName:@"https://games.gamechanger.studio/develop"];
-    [self.viewController setWwwFolderName:@"https://games.gamechanger.studio/develop/noise-meter"];
+    [self.viewController setWwwFolderName:@"https://games.gamechanger.studio/develop"];
+//    [self.viewController setWwwFolderName:@"https://games.gamechanger.studio/develop/noise-meter"];
 //    [self.viewController setWwwFolderName:@"https://www.gcmvp.com"];
     
     AppDelegate* app = (AppDelegate*)[UIApplication sharedApplication].delegate;

@@ -17,17 +17,17 @@
  under the License.
  */
 
-#import "CDVCommandDelegateImpl.h"
+#import "GcmvpCDVCommandDelegateImpl.h"
 #import "CDVJSON_private.h"
-#import "CDVCommandQueue.h"
+#import "GcmvpCDVCommandQueue.h"
 #import "CDVPluginResult.h"
-#import "CDVViewController.h"
+#import "GcmvpCDVViewController.h"
 
-@implementation CDVCommandDelegateImpl
+@implementation GcmvpCDVCommandDelegateImpl
 
 @synthesize urlTransformer;
 
-- (id)initWithViewController:(CDVViewController*)viewController
+- (id)initWithViewController:(GcmvpCDVViewController*)viewController
 {
     self = [super init];
     if (self != nil) {
