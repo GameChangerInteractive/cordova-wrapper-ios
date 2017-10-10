@@ -11,9 +11,9 @@ You can import this easily to your project.
 
 #import <CoreData/CoreData.h>
 
-#import "CDVAppDelegate.h"
+#import "GcmvpCDVAppDelegate.h"
 
-@interface AppDelegate : CDVAppDelegate
+@interface AppDelegate : GcmvpCDVAppDelegate
 
 //@property (strong, nonatomic) UIWindow *window;
 
@@ -86,6 +86,6 @@ You can import this easily to your project.
 # Tutorial
 ----
 
-<a href="http://www.youtube.com/watch?feature=player_embedded&v=bbP4V-B-Rqc
-" target="_blank"><img src="http://img.youtube.com/vi/bbP4V-B-Rqc/0.jpg" 
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=YeWMf0byNzY
+" target="_blank"><img src="http://img.youtube.com/vi/YeWMf0byNzY/0.jpg" 
 alt="example" width="240" height="180" border="10" /></a>
