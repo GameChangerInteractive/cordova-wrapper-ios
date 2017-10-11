@@ -86,8 +86,11 @@
                                                      name:UIApplicationDidEnterBackgroundNotification object:nil];
 
         // read from UISupportedInterfaceOrientations (or UISupportedInterfaceOrientations~iPad, if its iPad) from -Info.plist
+        
+//        self.supportedOrientations = [self parseInterfaceOrientations:
+//            [[[NSBundle mainBundle] infoDictionary] objectForKey:@"UISupportedInterfaceOrientations"]];
         self.supportedOrientations = [self parseInterfaceOrientations:
-            [[[NSBundle mainBundle] infoDictionary] objectForKey:@"UISupportedInterfaceOrientations"]];
+                                      [[[NSBundle bundleForClass:[GcmvpCDVViewController class]] infoDictionary] objectForKey:@"UISupportedInterfaceOrientations"]];
 
         [self printVersion];
         [self printMultitaskingInfo];
@@ -140,7 +143,9 @@
         backgroundSupported = device.multitaskingSupported;
     }
 
-    NSNumber* exitsOnSuspend = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"UIApplicationExitsOnSuspend"];
+    
+//    NSNumber* exitsOnSuspend = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"UIApplicationExitsOnSuspend"];
+    NSNumber* exitsOnSuspend = [[NSBundle bundleForClass:[GcmvpCDVViewController class]] objectForInfoDictionaryKey:@"UIApplicationExitsOnSuspend"];
     if (exitsOnSuspend == nil) { // if it's missing, it should be NO (i.e. multi-tasking on by default)
         exitsOnSuspend = [NSNumber numberWithBool:NO];
     }
@@ -152,19 +157,38 @@
     NSString* path = self.configFile ?: @"config.xml";
 
     // if path is relative, resolve it against the main bundle
-    if(![path isAbsolutePath]){
-        NSString* absolutePath = [[NSBundle mainBundle] pathForResource:path ofType:nil];
+    if(![path isAbsolutePath]) {
+        
+        NSLog(@"configFilePath path = %@", path);
+        
+        NSBundle *frameworkBundle = [NSBundle bundleForClass:[GcmvpCDVViewController class]];
+        
+        NSLog(@"configFilePath frameworkBundle = %@", frameworkBundle);
+        
+//        frameworkBundle = [NSBundle mainBundle];
+//
+//        NSLog(@"configFilePath mainBundle = %@", frameworkBundle);
+
+        NSString* absolutePath = [frameworkBundle pathForResource: path ofType:nil];
+        
+//        NSString* absolutePath = [[NSBundle mainBundle] pathForResource:path ofType:nil];
+        
+        NSLog(@"configFilePath absolutePath = %@", absolutePath);
+
         if(!absolutePath){
             NSAssert(NO, @"ERROR: %@ not found in the main bundle!", path);
         }
         path = absolutePath;
     }
 
+    
     // Assert file exists
     if (![[NSFileManager defaultManager] fileExistsAtPath:path]) {
         NSAssert(NO, @"ERROR: %@ does not exist. Please run cordova-ios/bin/cordova_plist_to_config_xml path/to/project.", path);
         return nil;
     }
+    
+    NSLog(@"configFilePath = %@", path);
 
     return path;
 }
@@ -801,7 +825,8 @@
 {
     NSString* URLScheme = nil;
 
-    NSArray* URLTypes = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleURLTypes"];
+//    NSArray* URLTypes = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleURLTypes"];
+    NSArray* URLTypes = [[[NSBundle bundleForClass:[GcmvpCDVViewController class]] infoDictionary] objectForKey:@"CFBundleURLTypes"];
 
     if (URLTypes != nil) {
         NSDictionary* dict = [URLTypes objectAtIndex:0];

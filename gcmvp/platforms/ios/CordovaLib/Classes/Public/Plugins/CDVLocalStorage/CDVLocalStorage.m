@@ -277,7 +277,8 @@
 
 + (void)__verifyAndFixDatabaseLocations
 {
-    NSBundle* mainBundle = [NSBundle mainBundle];
+//    NSBundle* mainBundle = [NSBundle mainBundle];
+    NSBundle* mainBundle = [NSBundle bundleForClass:[GcmvpCDVViewController class]];
     NSString* bundlePath = [[mainBundle bundlePath] stringByDeletingLastPathComponent];
     NSString* bundleIdentifier = [[mainBundle infoDictionary] objectForKey:@"CFBundleIdentifier"];
     NSString* appPlistPath = [bundlePath stringByAppendingPathComponent:[NSString stringWithFormat:@"Library/Preferences/%@.plist", bundleIdentifier]];
@@ -372,7 +373,8 @@
 - (void)onResignActive
 {
     UIDevice* device = [UIDevice currentDevice];
-    NSNumber* exitsOnSuspend = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"UIApplicationExitsOnSuspend"];
+//    NSNumber* exitsOnSuspend = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"UIApplicationExitsOnSuspend"];
+    NSNumber* exitsOnSuspend = [[NSBundle bundleForClass:[GcmvpCDVViewController class]] objectForInfoDictionaryKey:@"UIApplicationExitsOnSuspend"];
 
     BOOL isMultitaskingSupported = [device respondsToSelector:@selector(isMultitaskingSupported)] && [device isMultitaskingSupported];
 

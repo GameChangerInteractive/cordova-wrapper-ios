@@ -25,9 +25,9 @@
 //  Copyright ___ORGANIZATIONNAME___ ___YEAR___. All rights reserved.
 //
 
-#import <Cordova/GcmvpCDVViewController.h>
-#import <Cordova/GcmvpCDVCommandDelegateImpl.h>
-#import <Cordova/GcmvpCDVCommandQueue.h>
+#import <GcmvpCordova.framework/Headers/GcmvpCDVViewController.h>
+#import <GcmvpCordova.framework/Headers/GcmvpCDVCommandDelegateImpl.h>
+#import <GcmvpCordova.framework/Headers/GcmvpCDVCommandQueue.h>
 
 @interface GcmvpCordovaWebViewController : GcmvpCDVViewController
 

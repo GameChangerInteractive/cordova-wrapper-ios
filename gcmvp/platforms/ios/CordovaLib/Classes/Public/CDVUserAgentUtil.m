@@ -46,7 +46,9 @@ static NSMutableArray* gPendingSetUserAgentBlocks = nil;
         // Record the model since simulator can change it without re-install (CB-5420).
         NSString* model = [UIDevice currentDevice].model;
         // Record the version of the app so that we can bust the cache when it changes (CB-10078)
-        NSString* appVersion = [[NSBundle mainBundle] infoDictionary][@"CFBundleVersion"];
+        
+//        NSString* appVersion = [[NSBundle mainBundle] infoDictionary][@"CFBundleVersion"];
+        NSString* appVersion = [[NSBundle bundleForClass:[CDVUserAgentUtil class]] infoDictionary][@"CFBundleVersion"];
         NSString* systemAndLocale = [NSString stringWithFormat:@"%@ %@ %@ %@", appVersion, model, systemVersion, localeStr];
 
         NSString* cordovaUserAgentVersion = [userDefaults stringForKey:kCdvUserAgentVersionKey];

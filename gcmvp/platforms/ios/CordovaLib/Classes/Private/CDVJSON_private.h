@@ -17,6 +17,8 @@
  under the License.
  */
 
+#import <Foundation/Foundation.h>
+
 @interface NSArray (CDVJSONSerializingPrivate)
 - (NSString*)cdv_JSONString;
 @end

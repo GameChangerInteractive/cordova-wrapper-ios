@@ -66,7 +66,8 @@
     NSMutableString *concatenatedJS = [[NSMutableString alloc] init];
     
     for (path in jsPaths) {
-        NSString *jsFilePath = [[NSBundle mainBundle] pathForResource:path ofType:nil];
+//        NSString *jsFilePath = [[NSBundle mainBundle] pathForResource:path ofType:nil];
+        NSString *jsFilePath = [[NSBundle bundleForClass:[CDVRemoteInjectionPlugin class]] pathForResource:path ofType:nil];
         
         NSURL *jsURL = [NSURL fileURLWithPath:jsFilePath];
         NSString *js = [NSString stringWithContentsOfFile:jsURL.path encoding:NSUTF8StringEncoding error:nil];
@@ -96,8 +97,9 @@
     // cordova_plugins.js).  The reason for this is the WebView will attempt to load the
     // file in the origin of the page (e.g. https://example.com/plugins/plugin/plugin.js).
     // By loading them first cordova will skip the loading process altogether.
-    NSDirectoryEnumerator *directoryEnumerator = [[NSFileManager defaultManager] enumeratorAtPath:[[NSBundle mainBundle] pathForResource:@"www/plugins" ofType:nil]];
-    
+
+    // NSDirectoryEnumerator *directoryEnumerator = [[NSFileManager defaultManager] enumeratorAtPath:[[NSBundle mainBundle] pathForResource:@"www/plugins" ofType:nil]];
+    NSDirectoryEnumerator *directoryEnumerator = [[NSFileManager defaultManager] enumeratorAtPath:[[NSBundle bundleForClass:[CDVRemoteInjectionPlugin class]] pathForResource:@"www/plugins" ofType:nil]];
     NSString *path;
     while (path = [directoryEnumerator nextObject])
     {

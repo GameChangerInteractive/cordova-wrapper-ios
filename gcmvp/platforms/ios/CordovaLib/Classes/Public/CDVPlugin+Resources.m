@@ -23,7 +23,8 @@
 
 - (NSString*)pluginLocalizedString:(NSString*)key
 {
-    NSBundle* bundle = [NSBundle bundleWithPath:[[NSBundle mainBundle] pathForResource:NSStringFromClass([self class]) ofType:@"bundle"]];
+//    NSBundle* bundle = [NSBundle bundleWithPath:[[NSBundle mainBundle] pathForResource:NSStringFromClass([self class]) ofType:@"bundle"]];
+    NSBundle* bundle = [NSBundle bundleWithPath:[[NSBundle bundleForClass:[CDVPlugin class]] pathForResource:NSStringFromClass([self class]) ofType:@"bundle"]];
 
     return [bundle localizedStringForKey:(key) value:nil table:nil];
 }

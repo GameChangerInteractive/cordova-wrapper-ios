@@ -201,7 +201,8 @@ static NSMutableArray *alertList = nil;
 static void playBeep(int count) {
     SystemSoundID completeSound;
     NSInteger cbDataCount = count;
-    NSURL* audioPath = [[NSBundle mainBundle] URLForResource:@"CDVNotification.bundle/beep" withExtension:@"wav"];
+//    NSURL* audioPath = [[NSBundle mainBundle] URLForResource:@"CDVNotification.bundle/beep" withExtension:@"wav"];
+    NSURL* audioPath = [[NSBundle bundleForClass:[CDVNotification class]] URLForResource:@"CDVNotification.bundle/beep" withExtension:@"wav"];
     #if __has_feature(objc_arc)
         AudioServicesCreateSystemSoundID((__bridge CFURLRef)audioPath, &completeSound);
     #else
