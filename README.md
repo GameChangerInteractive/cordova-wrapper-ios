@@ -86,6 +86,4 @@ You can import this easily to your project.
 # Tutorial
 ----
 
-<a href="http://www.youtube.com/watch?feature=player_embedded&v=YeWMf0byNzY
-" target="_blank"><img src="http://img.youtube.com/vi/YeWMf0byNzY/0.jpg" 
-alt="example" width="240" height="180" border="10" /></a>
+https://drive.google.com/file/d/0B_15pzxptlunQjIyMmQ4WThncEE/view?usp=sharing
