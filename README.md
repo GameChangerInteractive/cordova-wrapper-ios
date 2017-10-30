@@ -1,89 +1,100 @@
 # wrapper-ios v1.0.0
 :iphone: native cordova-enabled ios webview that wraps our website
 
-# How to import on your project.
+## How to build from source
 
-You can import this easily to your project.
+Select the GcmvpCordovaWrapper build target and build it.
 
-# 1. on your AppDelegate.h
-```
-#import <UIKit/UIKit.h>
+## How to import on your project.
 
-#import <CoreData/CoreData.h>
+1. on your AppDelegate.h
 
-#import "GcmvpCDVAppDelegate.h"
+    ```
+    #import <UIKit/UIKit.h>
 
-@interface AppDelegate : GcmvpCDVAppDelegate
+    #import <CoreData/CoreData.h>
 
-//@property (strong, nonatomic) UIWindow *window;
+    #import "GcmvpCDVAppDelegate.h"
 
-@property (readonly, strong) NSPersistentContainer *persistentContainer;
+    @interface AppDelegate : GcmvpCDVAppDelegate
 
--(void)saveContext;
+    //@property (strong, nonatomic) UIWindow *window;
 
-@end
-```
+    @property (readonly, strong) NSPersistentContainer *persistentContainer;
 
-# 2. on your AppDelegate.m
-```
--(BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    -(void)saveContext;
 
-    // Override point for customization after application launch.
+    @end
+    ```
+
+2. on your AppDelegate.m
+
+    ```
+    -(BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+
+        // Override point for customization after application launch.
+
+        [super application:application didFinishLaunchingWithOptions:launchOptions];
+
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        self.window.rootViewController = ([storyboard instantiateViewControllerWithIdentifier:@"startNavigationViewController"]);
+
+        return YES;
+    }
+    ```
     
-    [super application:application didFinishLaunchingWithOptions:launchOptions];
+3. on your ViewController.m
+
+    ```
+    #import "ViewController.h"
+
+    #import "GcmvpCordovaWebViewController.h"
+
+    @interface ViewController ()
+
+    @end
+
+    @implementation ViewController
+
+    -(void)viewDidLoad {
+
+        [super viewDidLoad];
+
+        // Do any additional setup after loading the view, typically from a nib.
+    }
+
+
+    -(void)didReceiveMemoryWarning {
+
+        [super didReceiveMemoryWarning];
+
+        // Dispose of any resources that can be recreated.
+    }
+
+    -(void)viewWillAppear:(BOOL)animated {
+
+        [self.navigationController setNavigationBarHidden:YES];
+
+    }
+
+    -(IBAction)goGameSite:(id)sender {
+
+        GcmvpCordovaWebViewController *vpController = [[GcmvpCordovaWebViewController alloc] init];
+        //you can set your custome url
+        [vpController setWwwFolderName:@"https://games.gamechanger.studio/develop"];
+
+        [self.navigationController pushViewController:vpController animated:YES];
+
+    }
+
+    @end
+    ```
     
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    self.window.rootViewController = ([storyboard instantiateViewControllerWithIdentifier:@"startNavigationViewController"]);
-    
-    return YES;
-}
-```
-# 3. on your ViewController.m
-```
-#import "ViewController.h"
-
-#import "GcmvpCordovaWebViewController.h"
-
-@interface ViewController ()
-
-@end
-
-@implementation ViewController
-
--(void)viewDidLoad {
-
-    [super viewDidLoad];
-    
-    // Do any additional setup after loading the view, typically from a nib.
-}
-
-
--(void)didReceiveMemoryWarning {
-
-    [super didReceiveMemoryWarning];
-    
-    // Dispose of any resources that can be recreated.
-}
-
--(void)viewWillAppear:(BOOL)animated {
-
-    [self.navigationController setNavigationBarHidden:YES];
-    
-}
-
--(IBAction)goGameSite:(id)sender {
-
-    GcmvpCordovaWebViewController *vpController = [[GcmvpCordovaWebViewController alloc] init];
-    //you can set your custome url
-    [vpController setWwwFolderName:@"https://games.gamechanger.studio/develop"];
-    
-    [self.navigationController pushViewController:vpController animated:YES];
-    
-}
-
-@end
-```
-# Tutorial
-----
+## Tutorial
 
 https://drive.google.com/file/d/0B_15pzxptlunQktRUHZ3TVYwNlU/view?usp=sharing
+
+## Demo Project
+
+This project implements the frameworks.
+https://drive.google.com/file/d/0B_15pzxptlunQl9CMVRGWVZGdVk/view?usp=sharing
