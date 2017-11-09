@@ -1,7 +1,0 @@
-{
-    "Accelerate.framework": 1,
-    "CoreAudio.framework": 1,
-    "AudioToolbox.framework": 3,
-    "AVFoundation.framework": 1,
-    "WebKit.framework": 1
-}
