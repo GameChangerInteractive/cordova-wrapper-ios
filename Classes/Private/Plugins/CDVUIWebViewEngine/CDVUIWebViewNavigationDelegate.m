@@ -18,9 +18,9 @@
  */
 
 #import "CDVUIWebViewNavigationDelegate.h"
-#import <Cordova/CDVViewController.h>
-#import <Cordova/CDVCommandDelegateImpl.h>
-#import <Cordova/CDVUserAgentUtil.h>
+#import <GCMVP/CDVViewController.h>
+#import <GCMVP/CDVCommandDelegateImpl.h>
+#import <GCMVP/CDVUserAgentUtil.h>
 #import <objc/message.h>
 
 @implementation CDVUIWebViewNavigationDelegate

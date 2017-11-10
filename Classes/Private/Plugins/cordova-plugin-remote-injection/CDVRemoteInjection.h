@@ -2,7 +2,7 @@
 //  CDVRemoteInjection.h
 //
 
-#import <Cordova/CDVPlugin.h>
+#import <GCMVP/CDVPlugin.h>
 
 @interface CDVRemoteInjectionPlugin : CDVPlugin
 @property (readonly) NSArray *injectFirstFiles;

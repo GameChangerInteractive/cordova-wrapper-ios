@@ -1,6 +1,6 @@
 #import "Flashlight.h"
 #import <AVFoundation/AVFoundation.h>
-#import <Cordova/CDV.h>
+#import <GCMVP/CDV.h>
 
 @implementation Flashlight
 

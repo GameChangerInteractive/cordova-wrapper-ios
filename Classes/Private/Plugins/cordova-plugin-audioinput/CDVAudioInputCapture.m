@@ -1,6 +1,6 @@
 /********* CDVAudioInputCapture.m Cordova Plugin Implementation *******/
 
-#import <Cordova/CDV.h>
+#import <GCMVP/CDV.h>
 #import "AudioReceiver.h"
 
 @interface CDVAudioInputCapture : CDVPlugin <AudioReceiverProtocol> {

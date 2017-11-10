@@ -1,4 +1,4 @@
-#import <Cordova/CDV.h>
+#import <GCMVP/CDV.h>
 
 @interface Insomnia :CDVPlugin
 

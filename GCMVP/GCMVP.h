@@ -27,25 +27,25 @@ FOUNDATION_EXPORT const unsigned char CordovaVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <Cordova/PublicHeader.h>
 
-#import <Cordova/CDV.h>
-#import <Cordova/CDVCommandDelegateImpl.h>
-#import <Cordova/CDVAvailability.h>
-#import <Cordova/CDVAvailabilityDeprecated.h>
-#import <Cordova/CDVAppDelegate.h>
-#import <Cordova/CDVPlugin.h>
-#import <Cordova/CDVPluginResult.h>
-#import <Cordova/CDVViewController.h>
-#import <Cordova/CDVCommandDelegate.h>
-#import <Cordova/CDVCommandQueue.h>
-#import <Cordova/CDVConfigParser.h>
-#import <Cordova/CDVURLProtocol.h>
-#import <Cordova/CDVInvokedUrlCommand.h>
-#import <Cordova/CDVPlugin+Resources.h>
-#import <Cordova/CDVWebViewEngineProtocol.h>
-#import <Cordova/NSDictionary+CordovaPreferences.h>
-#import <Cordova/NSMutableArray+QueueAdditions.h>
-#import <Cordova/CDVUIWebViewDelegate.h>
-#import <Cordova/CDVWhitelist.h>
-#import <Cordova/CDVScreenOrientationDelegate.h>
-#import <Cordova/CDVTimer.h>
-#import <Cordova/CDVUserAgentUtil.h>
+#import <GCMVP/CDV.h>
+#import <GCMVP/CDVCommandDelegateImpl.h>
+#import <GCMVP/CDVAvailability.h>
+#import <GCMVP/CDVAvailabilityDeprecated.h>
+#import <GCMVP/CDVAppDelegate.h>
+#import <GCMVP/CDVPlugin.h>
+#import <GCMVP/CDVPluginResult.h>
+#import <GCMVP/CDVViewController.h>
+#import <GCMVP/CDVCommandDelegate.h>
+#import <GCMVP/CDVCommandQueue.h>
+#import <GCMVP/CDVConfigParser.h>
+#import <GCMVP/CDVURLProtocol.h>
+#import <GCMVP/CDVInvokedUrlCommand.h>
+#import <GCMVP/CDVPlugin+Resources.h>
+#import <GCMVP/CDVWebViewEngineProtocol.h>
+#import <GCMVP/NSDictionary+CordovaPreferences.h>
+#import <GCMVP/NSMutableArray+QueueAdditions.h>
+#import <GCMVP/CDVUIWebViewDelegate.h>
+#import <GCMVP/CDVWhitelist.h>
+#import <GCMVP/CDVScreenOrientationDelegate.h>
+#import <GCMVP/CDVTimer.h>
+#import <GCMVP/CDVUserAgentUtil.h>

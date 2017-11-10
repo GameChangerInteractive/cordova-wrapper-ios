@@ -1,5 +1,5 @@
 #import "Insomnia.h"
-#import <Cordova/CDV.h>
+#import <GCMVP/CDV.h>
 
 @implementation Insomnia
 

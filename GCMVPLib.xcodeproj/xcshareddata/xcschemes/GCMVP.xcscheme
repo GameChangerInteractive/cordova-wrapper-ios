@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "C0C01EB11E3911D50056E6CB"
-               BuildableName = "Cordova.framework"
-               BlueprintName = "Cordova"
-               ReferencedContainer = "container:CordovaLib.xcodeproj">
+               BuildableName = "GCMVP.framework"
+               BlueprintName = "GCMVP"
+               ReferencedContainer = "container:GCMVPLib.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -26,6 +26,7 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      language = ""
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
       </Testables>
@@ -36,6 +37,7 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      language = ""
       launchStyle = "0"
       useCustomWorkingDirectory = "NO"
       ignoresPersistentStateOnLaunch = "NO"
@@ -46,9 +48,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C0C01EB11E3911D50056E6CB"
-            BuildableName = "Cordova.framework"
-            BlueprintName = "Cordova"
-            ReferencedContainer = "container:CordovaLib.xcodeproj">
+            BuildableName = "GCMVP.framework"
+            BlueprintName = "GCMVP"
+            ReferencedContainer = "container:GCMVPLib.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -64,9 +66,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C0C01EB11E3911D50056E6CB"
-            BuildableName = "Cordova.framework"
-            BlueprintName = "Cordova"
-            ReferencedContainer = "container:CordovaLib.xcodeproj">
+            BuildableName = "GCMVP.framework"
+            BlueprintName = "GCMVP"
+            ReferencedContainer = "container:GCMVPLib.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>
