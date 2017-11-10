@@ -1931,6 +1931,7 @@ utils.alert = function(msg) {
 });
 
 window.cordova = require('cordova');
+window.isEmbedded = true;
 // file: src/scripts/bootstrap.js
 
 require('cordova/init');
