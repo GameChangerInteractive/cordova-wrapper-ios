@@ -19,10 +19,10 @@
 
 #import "CDVAvailability.h"
 #import "CDVAvailabilityDeprecated.h"
-#import "CDVAppDelegate.h"
+#import "GCMVPAppDelegate.h"
 #import "CDVPlugin.h"
 #import "CDVPluginResult.h"
-#import "CDVViewController.h"
+#import "GCMVPViewController.h"
 #import "CDVCommandDelegate.h"
 #import "CDVURLProtocol.h"
 #import "CDVInvokedUrlCommand.h"

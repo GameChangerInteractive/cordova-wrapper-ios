@@ -18,11 +18,11 @@
  */
 
 #import <Foundation/Foundation.h>
-#import "CDVViewController.h"
+#import "GCMVPViewController.h"
 
-@interface CDVAppDelegate : NSObject <UIApplicationDelegate>{}
+@interface GCMVPAppDelegate : NSObject <UIApplicationDelegate>{}
 
 @property (nonatomic, strong) IBOutlet UIWindow* window;
-@property (nonatomic, strong) IBOutlet CDVViewController* viewController;
+@property (nonatomic, strong) IBOutlet GCMVPViewController* viewController;
 
 @end

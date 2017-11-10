@@ -21,13 +21,13 @@
 #import "CDVJSON_private.h"
 #import "CDVCommandQueue.h"
 #import "CDVPluginResult.h"
-#import "CDVViewController.h"
+#import "GCMVPViewController.h"
 
 @implementation CDVCommandDelegateImpl
 
 @synthesize urlTransformer;
 
-- (id)initWithViewController:(CDVViewController*)viewController
+- (id)initWithViewController:(GCMVPViewController*)viewController
 {
     self = [super init];
     if (self != nil) {

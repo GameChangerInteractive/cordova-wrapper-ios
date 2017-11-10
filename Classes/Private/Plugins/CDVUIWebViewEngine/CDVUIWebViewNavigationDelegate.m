@@ -18,7 +18,7 @@
  */
 
 #import "CDVUIWebViewNavigationDelegate.h"
-#import <GCMVP/CDVViewController.h>
+#import <GCMVP/GCMVPViewController.h>
 #import <GCMVP/CDVCommandDelegateImpl.h>
 #import <GCMVP/CDVUserAgentUtil.h>
 #import <objc/message.h>
@@ -42,7 +42,7 @@
 - (void)webViewDidStartLoad:(UIWebView*)theWebView
 {
     NSLog(@"Resetting plugins due to page load.");
-    CDVViewController* vc = (CDVViewController*)self.enginePlugin.viewController;
+    GCMVPViewController* vc = (GCMVPViewController*)self.enginePlugin.viewController;
 
     [vc.commandQueue resetRequestId];
     [[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:CDVPluginResetNotification object:self.enginePlugin.webView]];
@@ -54,7 +54,7 @@
 - (void)webViewDidFinishLoad:(UIWebView*)theWebView
 {
     NSLog(@"Finished load of: %@", theWebView.request.URL);
-    CDVViewController* vc = (CDVViewController*)self.enginePlugin.viewController;
+    GCMVPViewController* vc = (GCMVPViewController*)self.enginePlugin.viewController;
 
     // It's safe to release the lock even if this is just a sub-frame that's finished loading.
     [CDVUserAgentUtil releaseLock:vc.userAgentLockToken];
@@ -69,7 +69,7 @@
 
 - (void)webView:(UIWebView*)theWebView didFailLoadWithError:(NSError*)error
 {
-    CDVViewController* vc = (CDVViewController*)self.enginePlugin.viewController;
+    GCMVPViewController* vc = (GCMVPViewController*)self.enginePlugin.viewController;
 
     [CDVUserAgentUtil releaseLock:vc.userAgentLockToken];
 
@@ -101,7 +101,7 @@
 - (BOOL)webView:(UIWebView*)theWebView shouldStartLoadWithRequest:(NSURLRequest*)request navigationType:(UIWebViewNavigationType)navigationType
 {
     NSURL* url = [request URL];
-    CDVViewController* vc = (CDVViewController*)self.enginePlugin.viewController;
+    GCMVPViewController* vc = (GCMVPViewController*)self.enginePlugin.viewController;
 
     /*
      * Execute any commands queued with cordova.exec() on the JS side.

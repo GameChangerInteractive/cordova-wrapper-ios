@@ -17,9 +17,9 @@
  under the License.
  */
 
-#import "CDVAppDelegate.h"
+#import "GCMVPAppDelegate.h"
 
-@implementation CDVAppDelegate
+@implementation GCMVPAppDelegate
 
 @synthesize window, viewController;
 

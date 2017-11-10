@@ -31,10 +31,10 @@ FOUNDATION_EXPORT const unsigned char CordovaVersionString[];
 #import <GCMVP/CDVCommandDelegateImpl.h>
 #import <GCMVP/CDVAvailability.h>
 #import <GCMVP/CDVAvailabilityDeprecated.h>
-#import <GCMVP/CDVAppDelegate.h>
+#import <GCMVP/GCMVPAppDelegate.h>
 #import <GCMVP/CDVPlugin.h>
 #import <GCMVP/CDVPluginResult.h>
-#import <GCMVP/CDVViewController.h>
+#import <GCMVP/GCMVPViewController.h>
 #import <GCMVP/CDVCommandDelegate.h>
 #import <GCMVP/CDVCommandQueue.h>
 #import <GCMVP/CDVConfigParser.h>

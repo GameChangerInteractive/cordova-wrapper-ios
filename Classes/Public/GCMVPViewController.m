@@ -29,7 +29,7 @@
 #import "CDVCommandDelegateImpl.h"
 #import <Foundation/NSCharacterSet.h>
 
-@interface CDVViewController () {
+@interface GCMVPViewController () {
     NSInteger _userAgentLockToken;
 }
 
@@ -46,7 +46,7 @@
 
 @end
 
-@implementation CDVViewController
+@implementation GCMVPViewController
 
 @synthesize supportedOrientations;
 @synthesize pluginObjects, pluginsMap, startupPluginNames;
@@ -151,7 +151,7 @@
         
         NSLog(@"configFilePath path = %@", path);
         
-        NSBundle *frameworkBundle = [NSBundle bundleForClass:[CDVViewController class]];
+        NSBundle *frameworkBundle = [NSBundle bundleForClass:[GCMVPViewController class]];
         
         NSLog(@"configFilePath frameworkBundle = %@", frameworkBundle);
         

@@ -20,17 +20,17 @@
 #import <UIKit/UIKit.h>
 #import "CDVCommandDelegate.h"
 
-@class CDVViewController;
+@class GCMVPViewController;
 @class CDVCommandQueue;
 
 @interface CDVCommandDelegateImpl : NSObject <CDVCommandDelegate>{
     @private
-    __weak CDVViewController* _viewController;
+    __weak GCMVPViewController* _viewController;
     NSRegularExpression* _callbackIdPattern;
     @protected
     __weak CDVCommandQueue* _commandQueue;
     BOOL _delayResponses;
 }
-- (id)initWithViewController:(CDVViewController*)viewController;
+- (id)initWithViewController:(GCMVPViewController*)viewController;
 - (void)flushCommandQueueWithDelayedJs;
 @end
