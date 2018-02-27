@@ -92,3 +92,7 @@ Select the GCMVP build target and build it.
     @end
     ```
     
+## Demo Project
+
+https://github.com/GameChangerInteractive/cordova-wrapper-ios/releases/download/1.0.5/GCCordovaWrapperExample.zip   
+    
