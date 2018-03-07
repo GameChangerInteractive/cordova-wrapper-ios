@@ -29,28 +29,21 @@ Select the GCMVP build target and build it.
     @end
     ```
 
-2. on your AppDelegate.m
+2. on your ViewController.h
 
     ```
-    -(BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    #import <UIKit/UIKit.h>
+    #import "GCMVP/GCMVPViewController.h"
 
-        // Override point for customization after application launch.
+    @interface ViewController : GCMVPViewController
 
-        [super application:application didFinishLaunchingWithOptions:launchOptions];
 
-        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        self.window.rootViewController = ([storyboard instantiateViewControllerWithIdentifier:@"startNavigationViewController"]);
-
-        return YES;
-    }
+    @end
     ```
-    
+
 3. on your ViewController.m
-
     ```
     #import "ViewController.h"
-
-    #import "GCMVP/GCMVPViewController.h"
 
     @interface ViewController ()
 
@@ -58,35 +51,17 @@ Select the GCMVP build target and build it.
 
     @implementation ViewController
 
-    -(void)viewDidLoad {
-
+    - (void)viewDidLoad {
+        //you can set custom url here
+        self.wwwFolderName = @"https://games.gamechanger.studio/develop";
         [super viewDidLoad];
-
         // Do any additional setup after loading the view, typically from a nib.
     }
 
 
-    -(void)didReceiveMemoryWarning {
-
+    - (void)didReceiveMemoryWarning {
         [super didReceiveMemoryWarning];
-
         // Dispose of any resources that can be recreated.
-    }
-
-    -(void)viewWillAppear:(BOOL)animated {
-
-        [self.navigationController setNavigationBarHidden:YES];
-
-    }
-
-    -(IBAction)goGameSite:(id)sender {
-
-        GCMVPViewController *vpController = [[GCMVPViewController alloc] init];
-        //you can set your custome url
-        vpController.wwwFolderName = @"https://games.gamechanger.studio/develop"];
-
-        [self.navigationController pushViewController:vpController animated:YES];
-
     }
 
     @end
