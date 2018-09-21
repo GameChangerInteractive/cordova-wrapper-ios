@@ -17,6 +17,9 @@
  under the License.
  */
 
+#ifndef CDV_INVOKED_URL_COMMAND_H
+#define CDV_INVOKED_URL_COMMAND_H
+
 #import <Foundation/Foundation.h>
 
 @interface CDVInvokedUrlCommand : NSObject {
@@ -50,3 +53,4 @@
 - (id)argumentAtIndex:(NSUInteger)index withDefault:(id)defaultValue andClass:(Class)aClass;
 
 @end
+#endif

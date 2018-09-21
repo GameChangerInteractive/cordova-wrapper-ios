@@ -17,6 +17,9 @@
  under the License.
  */
 
+#ifndef CDV_PLUGIN_H
+#define CDV_PLUGIN_H
+
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import "CDVPluginResult.h"
@@ -83,3 +86,4 @@ extern NSString* const CDVRemoteNotificationError CDV_DEPRECATED(4.0, "Functiona
 - (id)appDelegate;
 
 @end
+#endif

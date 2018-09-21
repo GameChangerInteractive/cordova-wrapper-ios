@@ -17,6 +17,9 @@
  under the License.
  */
 
+#ifndef CDV_PLUGIN_RESULT_H
+#define CDV_PLUGIN_RESULT_H
+
 #import <Foundation/Foundation.h>
 #import "CDVAvailability.h"
 
@@ -64,3 +67,4 @@ typedef enum {
 - (NSString*)argumentsAsJSON;
 
 @end
+#endif
