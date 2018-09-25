@@ -298,6 +298,14 @@ module.exports = [
     "clobbers": [
       "window.plugins.insomnia"
     ]
+  },
+  {
+    "id": "cordova-plugin-camera-stream.CameraStream",
+    "file": "plugins/cordova-plugin-camera-stream/www/CameraStream.js",
+    "pluginId": "cordova-plugin-camera-stream",
+    "clobbers": [
+            "cordova.plugins.CameraStream"
+    ]
   }
 ];
 module.exports.metadata = 

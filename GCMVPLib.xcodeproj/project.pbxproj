@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		01104E40215A511C00BDC867 /* CDVCameraCapture.h in Headers */ = {isa = PBXBuildFile; fileRef = 01104E3E215A511C00BDC867 /* CDVCameraCapture.h */; };
+		01104E41215A511C00BDC867 /* CDVCameraCapture.m in Sources */ = {isa = PBXBuildFile; fileRef = 01104E3F215A511C00BDC867 /* CDVCameraCapture.m */; };
+		01104E44215A55B700BDC867 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01104E43215A55B700BDC867 /* AVFoundation.framework */; };
 		01E9799E1FB45156002282F8 /* config.xml in Resources */ = {isa = PBXBuildFile; fileRef = 01E9799D1FB45156002282F8 /* config.xml */; };
 		01E97A1A1FB46060002282F8 /* www in Resources */ = {isa = PBXBuildFile; fileRef = 01E97A191FB46060002282F8 /* www */; };
 		01E97A531FB46B10002282F8 /* CDVVibration.h in Headers */ = {isa = PBXBuildFile; fileRef = 01E97A381FB46B0F002282F8 /* CDVVibration.h */; };
@@ -147,6 +150,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		01104E3E215A511C00BDC867 /* CDVCameraCapture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDVCameraCapture.h; sourceTree = "<group>"; };
+		01104E3F215A511C00BDC867 /* CDVCameraCapture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDVCameraCapture.m; sourceTree = "<group>"; };
+		01104E43215A55B700BDC867 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		01E9799D1FB45156002282F8 /* config.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = config.xml; sourceTree = "<group>"; };
 		01E97A191FB46060002282F8 /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; path = www; sourceTree = "<group>"; };
 		01E97A381FB46B0F002282F8 /* CDVVibration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDVVibration.h; sourceTree = "<group>"; };
@@ -251,6 +257,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				01104E44215A55B700BDC867 /* AVFoundation.framework in Frameworks */,
 				C0C01EBA1E39120F0056E6CB /* libGCMVP.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -265,6 +272,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		01104E3D215A511C00BDC867 /* cordova-plugin-camera-capture */ = {
+			isa = PBXGroup;
+			children = (
+				01104E3E215A511C00BDC867 /* CDVCameraCapture.h */,
+				01104E3F215A511C00BDC867 /* CDVCameraCapture.m */,
+			);
+			path = "cordova-plugin-camera-capture";
+			sourceTree = "<group>";
+		};
+		01104E42215A55B700BDC867 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				01104E43215A55B700BDC867 /* AVFoundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		01E97A371FB46B0F002282F8 /* cordova-plugin-vibration */ = {
 			isa = PBXGroup;
 			children = (
@@ -385,6 +409,7 @@
 				C0C01EB31E3911D50056E6CB /* GCMVP */,
 				034768DFFF38A50411DB9C8B /* Products */,
 				30325A0B136B343700982B63 /* VERSION */,
+				01104E42215A55B700BDC867 /* Frameworks */,
 			);
 			name = GCMVPLib;
 			sourceTree = "<group>";
@@ -424,6 +449,7 @@
 		7ED95CF61AB9028C008C4574 /* Plugins */ = {
 			isa = PBXGroup;
 			children = (
+				01104E3D215A511C00BDC867 /* cordova-plugin-camera-capture */,
 				01F1D7152126E9CB00133DE1 /* cordova-plugin-x-socialsharing */,
 				01F1D7102126E98400133DE1 /* cordova-plugin-media-capture */,
 				01F1D7032126E89100133DE1 /* cordova-plugin-file */,
@@ -609,6 +635,7 @@
 				7ED95D571AB9029B008C4574 /* NSDictionary+CordovaPreferences.h in Headers */,
 				7ED95D451AB9029B008C4574 /* CDVPlugin.h in Headers */,
 				7ED95D4C1AB9029B008C4574 /* CDVURLProtocol.h in Headers */,
+				01104E40215A511C00BDC867 /* CDVCameraCapture.h in Headers */,
 				7ED95D3A1AB9029B008C4574 /* CDVCommandDelegate.h in Headers */,
 				7ED95D391AB9029B008C4574 /* CDVAvailabilityDeprecated.h in Headers */,
 				7ED95D4E1AB9029B008C4574 /* CDVUserAgentUtil.h in Headers */,
@@ -756,6 +783,7 @@
 				7ED95D4F1AB9029B008C4574 /* CDVUserAgentUtil.m in Sources */,
 				7ED95D401AB9029B008C4574 /* CDVConfigParser.m in Sources */,
 				A3B082D51BB15CEA00D8DC35 /* CDVGestureHandler.m in Sources */,
+				01104E41215A511C00BDC867 /* CDVCameraCapture.m in Sources */,
 				7ED95D071AB9028C008C4574 /* CDVHandleOpenURL.m in Sources */,
 				30193A501AE6350A0069A75F /* CDVUIWebViewNavigationDelegate.m in Sources */,
 				7ED95D5A1AB9029B008C4574 /* NSMutableArray+QueueAdditions.m in Sources */,

@@ -52,6 +52,9 @@
         <param name="ios-package" value="CDVRemoteInjectionPlugin" />
         <param name="onload" value="true" />
     </feature>
+    <feature name="CameraStream">
+        <param name="ios-package" value="CDVCameraCapture" />
+    </feature>
     <name>GC Cordova Wrapper</name>
     <description>
         A sample Apache Cordova application that responds to the deviceready event.
