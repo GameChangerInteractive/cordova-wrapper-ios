@@ -296,7 +296,7 @@
     // Load settings
     [self loadSettings];
 
-    NSString* backupWebStorageType = @"cloud"; // default value
+    NSString* backupWebStorageType = @"local"; // default value
 
     id backupWebStorage = [self.settings cordovaSettingForKey:@"BackupWebStorage"];
     if ([backupWebStorage isKindOfClass:[NSString class]]) {

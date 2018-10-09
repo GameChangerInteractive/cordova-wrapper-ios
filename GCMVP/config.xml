@@ -55,6 +55,13 @@
     <feature name="CameraStream">
         <param name="ios-package" value="CDVCameraCapture" />
     </feature>
+    <feature name="Close">
+        <param name="ios-package" value="CDVClose" />
+    </feature>
+    <feature name="FirebasePlugin">
+        <param name="ios-package" value="FirebasePlugin" />
+        <param name="onload" value="true" />
+    </feature>
     <name>GC Cordova Wrapper</name>
     <description>
         A sample Apache Cordova application that responds to the deviceready event.
@@ -78,7 +85,7 @@
         <string>This app needs microphone access</string>
     </config-file>
     <preference name="AllowInlineMediaPlayback" value="false" />
-    <preference name="BackupWebStorage" value="none" />
+    <preference name="BackupWebStorage" value="local" />
     <preference name="DisallowOverscroll" value="false" />
     <preference name="EnableViewportScale" value="false" />
     <preference name="KeyboardDisplayRequiresUserAction" value="true" />
