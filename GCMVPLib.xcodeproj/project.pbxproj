@@ -88,6 +88,8 @@
 		01F1D71B2126E9DD00133DE1 /* NSString+SSURLEncoding.h in Headers */ = {isa = PBXBuildFile; fileRef = 01F1D7172126E9DD00133DE1 /* NSString+SSURLEncoding.h */; };
 		01F1D71C2126E9DD00133DE1 /* SocialSharing.h in Headers */ = {isa = PBXBuildFile; fileRef = 01F1D7182126E9DD00133DE1 /* SocialSharing.h */; };
 		01F1D71D2126E9DD00133DE1 /* SocialSharing.m in Sources */ = {isa = PBXBuildFile; fileRef = 01F1D7192126E9DD00133DE1 /* SocialSharing.m */; };
+		01FE05152189FD2700CBFE12 /* CDVLocation.h in Headers */ = {isa = PBXBuildFile; fileRef = 01FE05132189FD2700CBFE12 /* CDVLocation.h */; };
+		01FE05162189FD2700CBFE12 /* CDVLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 01FE05142189FD2700CBFE12 /* CDVLocation.m */; };
 		28BFF9141F355A4E00DDF01A /* CDVLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 28BFF9121F355A4E00DDF01A /* CDVLogger.h */; };
 		28BFF9151F355A4E00DDF01A /* CDVLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 28BFF9131F355A4E00DDF01A /* CDVLogger.m */; };
 		30193A501AE6350A0069A75F /* CDVUIWebViewNavigationDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 30193A4E1AE6350A0069A75F /* CDVUIWebViewNavigationDelegate.m */; };
@@ -259,6 +261,8 @@
 		01F6CEEB216CB8F400E15129 /* FirebaseCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseCore.framework; path = frameworks/FirebaseCore.framework; sourceTree = "<group>"; };
 		01F6CEED216CBAC600E15129 /* FirebaseMessaging.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseMessaging.framework; path = frameworks/FirebaseMessaging.framework; sourceTree = "<group>"; };
 		01F6CEEF216CBB0600E15129 /* FirebaseInstanceID.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseInstanceID.framework; path = frameworks/FirebaseInstanceID.framework; sourceTree = "<group>"; };
+		01FE05132189FD2700CBFE12 /* CDVLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDVLocation.h; sourceTree = "<group>"; };
+		01FE05142189FD2700CBFE12 /* CDVLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDVLocation.m; sourceTree = "<group>"; };
 		28BFF9121F355A4E00DDF01A /* CDVLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDVLogger.h; sourceTree = "<group>"; };
 		28BFF9131F355A4E00DDF01A /* CDVLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDVLogger.m; sourceTree = "<group>"; };
 		30193A4E1AE6350A0069A75F /* CDVUIWebViewNavigationDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDVUIWebViewNavigationDelegate.m; sourceTree = "<group>"; };
@@ -541,6 +545,15 @@
 			path = "cordova-plugin-x-socialsharing";
 			sourceTree = "<group>";
 		};
+		01FE05122189FD2700CBFE12 /* cordova-plugin-geolocation */ = {
+			isa = PBXGroup;
+			children = (
+				01FE05132189FD2700CBFE12 /* CDVLocation.h */,
+				01FE05142189FD2700CBFE12 /* CDVLocation.m */,
+			);
+			path = "cordova-plugin-geolocation";
+			sourceTree = "<group>";
+		};
 		034768DFFF38A50411DB9C8B /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -598,6 +611,7 @@
 		7ED95CF61AB9028C008C4574 /* Plugins */ = {
 			isa = PBXGroup;
 			children = (
+				01FE05122189FD2700CBFE12 /* cordova-plugin-geolocation */,
 				018ED83F216CE374000197F7 /* cordova-plugin-firebase */,
 				0109D85B21679F5D0088D525 /* cordova-plugin-close */,
 				01104E3D215A511C00BDC867 /* cordova-plugin-camera-capture */,
@@ -776,6 +790,7 @@
 				A3B082D41BB15CEA00D8DC35 /* CDVGestureHandler.h in Headers */,
 				7ED95D3B1AB9029B008C4574 /* CDVCommandDelegateImpl.h in Headers */,
 				7ED95D3D1AB9029B008C4574 /* CDVCommandQueue.h in Headers */,
+				01FE05152189FD2700CBFE12 /* CDVLocation.h in Headers */,
 				7ED95D531AB9029B008C4574 /* CDVWhitelist.h in Headers */,
 				7ED95D361AB9029B008C4574 /* GCMVPAppDelegate.h in Headers */,
 				7ED95D431AB9029B008C4574 /* CDVPlugin+Resources.h in Headers */,
@@ -954,6 +969,7 @@
 				7ED95D461AB9029B008C4574 /* CDVPlugin.m in Sources */,
 				7ED95D091AB9028C008C4574 /* CDVLocalStorage.m in Sources */,
 				3093E2241B16D6A3003F381A /* CDVIntentAndNavigationFilter.m in Sources */,
+				01FE05162189FD2700CBFE12 /* CDVLocation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
