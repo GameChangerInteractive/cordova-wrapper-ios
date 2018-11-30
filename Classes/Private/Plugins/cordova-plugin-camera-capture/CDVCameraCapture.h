@@ -33,4 +33,7 @@
 - (void) captureOutput: (AVCaptureOutput *) captureOutput
    didOutputSampleBuffer: (CMSampleBufferRef) sampleBuffer
           fromConnection: (AVCaptureConnection *) connection;
+- (UIImage *) rotatedImage: (UIImage *) image rotation: (CGFloat) rotation;
+- (CGFloat) degreesToRadians:(CGFloat) degrees;
+
 @end

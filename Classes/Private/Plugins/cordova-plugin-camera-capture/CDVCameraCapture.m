@@ -140,6 +140,7 @@
         CGColorSpaceRelease(colorSpace);
         UIImage *image = [UIImage imageWithCGImage:quartzImage];
         CGImageRelease(quartzImage);
+        image = [self rotatedImage:image rotation:[self degreesToRadians:90]];
         NSData *imageData = UIImageJPEGRepresentation(image, 0.3);
         NSString *encodedString = [imageData base64EncodedStringWithOptions:NSDataBase64EncodingEndLineWithLineFeed];
         NSString *javascript = @"cordova.plugins.CameraStream.capture('data:image/jpeg;base64,";
@@ -192,5 +193,32 @@
     CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
     [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 }
+
+- (UIImage *) rotatedImage:(UIImage *) image rotation:(CGFloat) rotation// rotation in radians
+{
+    // Calculate Destination Size
+    CGAffineTransform t = CGAffineTransformMakeRotation(rotation);
+    CGRect sizeRect = (CGRect) {.size = image.size};
+    CGRect destRect = CGRectApplyAffineTransform(sizeRect, t);
+    CGSize destinationSize = destRect.size;
+    
+    // Draw image
+    UIGraphicsBeginImageContext(destinationSize);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextTranslateCTM(context, destinationSize.width / 2.0f, destinationSize.height / 2.0f);
+    CGContextRotateCTM(context, rotation);
+    [image drawInRect:CGRectMake(-image.size.width / 2.0f, -image.size.height / 2.0f, image.size.width, image.size.height)];
+    
+    // Save image
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return newImage;
+}
+
+- (CGFloat) degreesToRadians:(CGFloat) degrees
+{
+    return degrees * M_PI / 180;
+};
+
 
 @end
