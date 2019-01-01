@@ -126,6 +126,7 @@
    didOutputSampleBuffer: (CMSampleBufferRef) sampleBuffer
           fromConnection: (AVCaptureConnection *) connection
 {
+    @try {
         CVImageBufferRef imageBuffer = CMSampleBufferGetImageBuffer(sampleBuffer);
         CVPixelBufferLockBaseAddress(imageBuffer, 0);
         void *baseAddress = CVPixelBufferGetBaseAddressOfPlane(imageBuffer, 0);
@@ -148,13 +149,29 @@
         javascript = [javascript stringByAppendingString:@"');"];
         UIWebView* uiWebView = (UIWebView*)self.webView;
         dispatch_async(dispatch_get_main_queue(), ^{
-            [uiWebView stringByEvaluatingJavaScriptFromString:javascript];
+            @try {
+                [uiWebView stringByEvaluatingJavaScriptFromString:javascript];
+            }
+            @catch(NSException *e) {
+                
+            }
         });
+    }
+    @catch(NSException *e) {
+        
+    }
 }
 
 - (void)startCapture:(CDVInvokedUrlCommand*)command
 {
     CDVPluginResult* pluginResult;
+    
+    if (self.session != NULL && self.session.isRunning) {
+        pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
+        [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+        return;
+    }
+    
     NSString *cameraString;
     
     if ([command.arguments count] == 0) {

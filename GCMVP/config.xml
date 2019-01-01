@@ -87,7 +87,7 @@
     <config-file parent="NSMicrophoneUsageDescription" target="*-Info.plist">
         <string>This app needs microphone access</string>
     </config-file>
-    <preference name="AllowInlineMediaPlayback" value="false" />
+    <preference name="AllowInlineMediaPlayback" value="true" />
     <preference name="BackupWebStorage" value="local" />
     <preference name="DisallowOverscroll" value="false" />
     <preference name="EnableViewportScale" value="false" />
