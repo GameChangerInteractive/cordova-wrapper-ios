@@ -26,6 +26,7 @@
 @property AVCaptureSession *session;
 
 - (void) startCapture:(CDVInvokedUrlCommand*)command;
+- (void) grantPermission:(CDVInvokedUrlCommand*)command;
 - (void) stopCapture:(CDVInvokedUrlCommand*)command;
 - (BOOL) findCamera: (BOOL) useFrontCamera;
 - (BOOL) attachCameraToCaptureSession;

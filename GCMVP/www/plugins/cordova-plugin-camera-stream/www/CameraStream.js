@@ -9,8 +9,12 @@ exports.startCapture = function (camera) {
 exports.stopCapture = function () {
     return execPromise('CameraStream', 'stopCapture', []);
 };
+               
+exports.grantPermission = function() {
+    return execPromise('CameraStream', 'grantPermission', []);
+}
 
-exports.capture = function(data){
+exports.capture = function(data) {
     /**
      * Just a placeholder, iOS is going to call this
      * directly when the camera stream is ready.

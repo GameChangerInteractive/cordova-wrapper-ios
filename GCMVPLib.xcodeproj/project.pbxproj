@@ -53,6 +53,14 @@
 		018ED87E216CE94E000197F7 /* MeasurementNanoPB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 018ED846216CE374000197F7 /* MeasurementNanoPB.framework */; };
 		018ED87F216CE94E000197F7 /* nanopb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 018ED850216CE374000197F7 /* nanopb.framework */; };
 		018ED880216CE94E000197F7 /* Protobuf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 018ED840216CE374000197F7 /* Protobuf.framework */; };
+		01C2C9BA21DB8B9700AE96B2 /* CameraSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C2C9B221DB8B9700AE96B2 /* CameraSessionManager.m */; };
+		01C2C9BB21DB8B9700AE96B2 /* CameraRenderController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C2C9B321DB8B9700AE96B2 /* CameraRenderController.m */; };
+		01C2C9BC21DB8B9700AE96B2 /* TemperatureAndTint.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C2C9B421DB8B9700AE96B2 /* TemperatureAndTint.m */; };
+		01C2C9BD21DB8B9700AE96B2 /* CameraPreview.h in Headers */ = {isa = PBXBuildFile; fileRef = 01C2C9B521DB8B9700AE96B2 /* CameraPreview.h */; };
+		01C2C9BE21DB8B9700AE96B2 /* CameraSessionManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 01C2C9B621DB8B9700AE96B2 /* CameraSessionManager.h */; };
+		01C2C9BF21DB8B9700AE96B2 /* TemperatureAndTint.h in Headers */ = {isa = PBXBuildFile; fileRef = 01C2C9B721DB8B9700AE96B2 /* TemperatureAndTint.h */; };
+		01C2C9C021DB8B9700AE96B2 /* CameraRenderController.h in Headers */ = {isa = PBXBuildFile; fileRef = 01C2C9B821DB8B9700AE96B2 /* CameraRenderController.h */; };
+		01C2C9C121DB8B9700AE96B2 /* CameraPreview.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C2C9B921DB8B9700AE96B2 /* CameraPreview.m */; };
 		01E9799E1FB45156002282F8 /* config.xml in Resources */ = {isa = PBXBuildFile; fileRef = 01E9799D1FB45156002282F8 /* config.xml */; };
 		01E97A1A1FB46060002282F8 /* www in Resources */ = {isa = PBXBuildFile; fileRef = 01E97A191FB46060002282F8 /* www */; };
 		01E97A531FB46B10002282F8 /* CDVVibration.h in Headers */ = {isa = PBXBuildFile; fileRef = 01E97A381FB46B0F002282F8 /* CDVVibration.h */; };
@@ -223,6 +231,14 @@
 		018ED854216CE374000197F7 /* FirebasePlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirebasePlugin.m; sourceTree = "<group>"; };
 		018ED855216CE374000197F7 /* FirebaseInstanceID.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseInstanceID.framework; sourceTree = "<group>"; };
 		018ED856216CE374000197F7 /* FirebaseCoreDiagnostics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseCoreDiagnostics.framework; sourceTree = "<group>"; };
+		01C2C9B221DB8B9700AE96B2 /* CameraSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraSessionManager.m; sourceTree = "<group>"; };
+		01C2C9B321DB8B9700AE96B2 /* CameraRenderController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraRenderController.m; sourceTree = "<group>"; };
+		01C2C9B421DB8B9700AE96B2 /* TemperatureAndTint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TemperatureAndTint.m; sourceTree = "<group>"; };
+		01C2C9B521DB8B9700AE96B2 /* CameraPreview.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraPreview.h; sourceTree = "<group>"; };
+		01C2C9B621DB8B9700AE96B2 /* CameraSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraSessionManager.h; sourceTree = "<group>"; };
+		01C2C9B721DB8B9700AE96B2 /* TemperatureAndTint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TemperatureAndTint.h; sourceTree = "<group>"; };
+		01C2C9B821DB8B9700AE96B2 /* CameraRenderController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraRenderController.h; sourceTree = "<group>"; };
+		01C2C9B921DB8B9700AE96B2 /* CameraPreview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraPreview.m; sourceTree = "<group>"; };
 		01E9799D1FB45156002282F8 /* config.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = config.xml; sourceTree = "<group>"; };
 		01E97A191FB46060002282F8 /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; path = www; sourceTree = "<group>"; };
 		01E97A381FB46B0F002282F8 /* CDVVibration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDVVibration.h; sourceTree = "<group>"; };
@@ -442,6 +458,21 @@
 			path = "cordova-plugin-firebase";
 			sourceTree = "<group>";
 		};
+		01C2C9B121DB8B9700AE96B2 /* cordova-plugin-camera-preview */ = {
+			isa = PBXGroup;
+			children = (
+				01C2C9B221DB8B9700AE96B2 /* CameraSessionManager.m */,
+				01C2C9B321DB8B9700AE96B2 /* CameraRenderController.m */,
+				01C2C9B421DB8B9700AE96B2 /* TemperatureAndTint.m */,
+				01C2C9B521DB8B9700AE96B2 /* CameraPreview.h */,
+				01C2C9B621DB8B9700AE96B2 /* CameraSessionManager.h */,
+				01C2C9B721DB8B9700AE96B2 /* TemperatureAndTint.h */,
+				01C2C9B821DB8B9700AE96B2 /* CameraRenderController.h */,
+				01C2C9B921DB8B9700AE96B2 /* CameraPreview.m */,
+			);
+			path = "cordova-plugin-camera-preview";
+			sourceTree = "<group>";
+		};
 		01E97A371FB46B0F002282F8 /* cordova-plugin-vibration */ = {
 			isa = PBXGroup;
 			children = (
@@ -611,6 +642,7 @@
 		7ED95CF61AB9028C008C4574 /* Plugins */ = {
 			isa = PBXGroup;
 			children = (
+				01C2C9B121DB8B9700AE96B2 /* cordova-plugin-camera-preview */,
 				01FE05122189FD2700CBFE12 /* cordova-plugin-geolocation */,
 				018ED83F216CE374000197F7 /* cordova-plugin-firebase */,
 				0109D85B21679F5D0088D525 /* cordova-plugin-close */,
@@ -793,6 +825,7 @@
 				01FE05152189FD2700CBFE12 /* CDVLocation.h in Headers */,
 				7ED95D531AB9029B008C4574 /* CDVWhitelist.h in Headers */,
 				7ED95D361AB9029B008C4574 /* GCMVPAppDelegate.h in Headers */,
+				01C2C9BF21DB8B9700AE96B2 /* TemperatureAndTint.h in Headers */,
 				7ED95D431AB9029B008C4574 /* CDVPlugin+Resources.h in Headers */,
 				7ED95D381AB9029B008C4574 /* CDVAvailability.h in Headers */,
 				7ED95D0A1AB9028C008C4574 /* CDVUIWebViewDelegate.h in Headers */,
@@ -811,6 +844,7 @@
 				7ED95D501AB9029B008C4574 /* GCMVPViewController.h in Headers */,
 				7ED95D031AB9028C008C4574 /* CDVJSON_private.h in Headers */,
 				018ED861216CE374000197F7 /* Firebase.h in Headers */,
+				01C2C9BD21DB8B9700AE96B2 /* CameraPreview.h in Headers */,
 				018ED868216CE374000197F7 /* AppDelegate+FirebasePlugin.h in Headers */,
 				7ED95D021AB9028C008C4574 /* CDVDebug.h in Headers */,
 				7ED95D051AB9028C008C4574 /* CDVPlugin+Private.h in Headers */,
@@ -818,6 +852,8 @@
 				3093E2231B16D6A3003F381A /* CDVIntentAndNavigationFilter.h in Headers */,
 				7E7F69B81ABA368F007546F4 /* CDVUIWebViewEngine.h in Headers */,
 				7E7F69B91ABA3692007546F4 /* CDVHandleOpenURL.h in Headers */,
+				01C2C9C021DB8B9700AE96B2 /* CameraRenderController.h in Headers */,
+				01C2C9BE21DB8B9700AE96B2 /* CameraSessionManager.h in Headers */,
 				0109D85E21679F5E0088D525 /* CDVClose.h in Headers */,
 				28BFF9141F355A4E00DDF01A /* CDVLogger.h in Headers */,
 				30193A511AE6350A0069A75F /* CDVUIWebViewNavigationDelegate.h in Headers */,
@@ -954,17 +990,21 @@
 				7ED95D401AB9029B008C4574 /* CDVConfigParser.m in Sources */,
 				A3B082D51BB15CEA00D8DC35 /* CDVGestureHandler.m in Sources */,
 				01104E41215A511C00BDC867 /* CDVCameraCapture.m in Sources */,
+				01C2C9C121DB8B9700AE96B2 /* CameraPreview.m in Sources */,
 				7ED95D071AB9028C008C4574 /* CDVHandleOpenURL.m in Sources */,
 				30193A501AE6350A0069A75F /* CDVUIWebViewNavigationDelegate.m in Sources */,
+				01C2C9BC21DB8B9700AE96B2 /* TemperatureAndTint.m in Sources */,
 				018ED85B216CE374000197F7 /* AppDelegate+FirebasePlugin.m in Sources */,
 				7ED95D5A1AB9029B008C4574 /* NSMutableArray+QueueAdditions.m in Sources */,
 				7ED95D3E1AB9029B008C4574 /* CDVCommandQueue.m in Sources */,
 				7ED95D481AB9029B008C4574 /* CDVPluginResult.m in Sources */,
 				018ED86B216CE374000197F7 /* FirebasePlugin.m in Sources */,
 				0109D85F21679F5E0088D525 /* CDVClose.m in Sources */,
+				01C2C9BA21DB8B9700AE96B2 /* CameraSessionManager.m in Sources */,
 				7ED95D441AB9029B008C4574 /* CDVPlugin+Resources.m in Sources */,
 				7ED95D4D1AB9029B008C4574 /* CDVURLProtocol.m in Sources */,
 				28BFF9151F355A4E00DDF01A /* CDVLogger.m in Sources */,
+				01C2C9BB21DB8B9700AE96B2 /* CameraRenderController.m in Sources */,
 				7ED95D0D1AB9028C008C4574 /* CDVUIWebViewEngine.m in Sources */,
 				7ED95D461AB9029B008C4574 /* CDVPlugin.m in Sources */,
 				7ED95D091AB9028C008C4574 /* CDVLocalStorage.m in Sources */,

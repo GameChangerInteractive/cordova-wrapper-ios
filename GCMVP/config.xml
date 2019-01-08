@@ -65,6 +65,9 @@
     <feature name="Geolocation">
         <param name="ios-package" value="CDVLocation" />
     </feature>
+    <feature name="CameraPreview">
+        <param name="ios-package" onload="true" value="CameraPreview" />
+    </feature>
     <name>GC Cordova Wrapper</name>
     <description>
         A sample Apache Cordova application that responds to the deviceready event.

@@ -354,6 +354,14 @@ module.exports = [
   "clobbers": [
                "navigator.geolocation"
                ]
+  },
+  {
+  "id": "cordova-plugin-camera-preview.CameraPreview",
+  "file": "plugins/cordova-plugin-camera-preview/www/CameraPreview.js",
+  "pluginId": "cordova-plugin-camera-preview",
+  "clobbers": [
+               "CameraPreview"
+               ]
   }
 ];
 module.exports.metadata = 
