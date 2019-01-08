@@ -213,31 +213,30 @@
 
 - (void) grantPermission:(CDVInvokedUrlCommand*)command
 {
-    NSLog(@"CDVCameraCapture.grantPermission");
     AVAuthorizationStatus authStatus = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];
     
     if(authStatus == AVAuthorizationStatusNotDetermined)
     {
-        NSLog(@"%@", @"CDVCameraCapture.grantPermission: Camera access not determined. Ask for permission.");
-        
         [AVCaptureDevice requestAccessForMediaType:AVMediaTypeVideo completionHandler:^(BOOL granted) {
             CDVPluginResult* pluginResult;
             
             if(granted){
                 pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
-                NSLog(@"CDVCameraCapture.grantPermission: Granted access to %@", AVMediaTypeVideo);
             } else {
                 pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR];
-                NSLog(@"CDVCameraCapture.grantPermission: Not granted access to %@", AVMediaTypeVideo);
             }
             
             [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
         }];
         
         return;
+    } else if (authStatus == AVAuthorizationStatusAuthorized) {
+        CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
+        [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+        return;
     }
     
-    CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
+    CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR];
     [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 }
 
