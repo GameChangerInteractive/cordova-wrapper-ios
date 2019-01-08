@@ -136,12 +136,11 @@
         CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
         CGContextRef context = CGBitmapContextCreate(baseAddress, width, height, 8, bytesPerRow, colorSpace, kCGBitmapByteOrder32Little | kCGImageAlphaPremultipliedFirst);
         CGImageRef quartzImage = CGBitmapContextCreateImage(context);
-        CVPixelBufferUnlockBaseAddress(imageBuffer,0);
+        CVPixelBufferUnlockBaseAddress(imageBuffer, 0);
         CGContextRelease(context);
         CGColorSpaceRelease(colorSpace);
-        UIImage *image = [UIImage imageWithCGImage:quartzImage];
+        UIImage *image = [UIImage imageWithCGImage:quartzImage scale:1 orientation:UIImageOrientationRight];
         CGImageRelease(quartzImage);
-        image = [self rotatedImage:image rotation:[self degreesToRadians:90]];
         NSData *imageData = UIImageJPEGRepresentation(image, 0.3);
         NSString *encodedString = [imageData base64EncodedStringWithOptions:NSDataBase64EncodingEndLineWithLineFeed];
         NSString *javascript = @"cordova.plugins.CameraStream.capture('data:image/jpeg;base64,";
