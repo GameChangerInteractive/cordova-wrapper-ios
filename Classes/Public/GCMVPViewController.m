@@ -674,9 +674,9 @@
     // NOTE: plugin names are matched as lowercase to avoid problems - however, a
     // possible issue is there can be duplicates possible if you had:
     // "org.apache.cordova.Foo" and "org.apache.cordova.foo" - only the lower-cased entry will match
-    NSLog(@"getCommandInstance: pluginName = %@", pluginName);
+    //NSLog(@"getCommandInstance: pluginName = %@", pluginName);
     NSString* className = [self.pluginsMap objectForKey:[pluginName lowercaseString]];
-    NSLog(@"getCommandInstance: className = %@", className);
+    //NSLog(@"getCommandInstance: className = %@", className);
 
     if (className == nil) {
         return nil;
