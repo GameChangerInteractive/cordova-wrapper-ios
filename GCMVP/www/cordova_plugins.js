@@ -316,14 +316,6 @@ module.exports = [
       ]
   },
   {
-      "id": "cordova-plugin-firebase.FirebasePlugin",
-      "file": "plugins/cordova-plugin-firebase/www/firebase.js",
-      "pluginId": "cordova-plugin-firebase",
-      "clobbers": [
-                   "FirebasePlugin"
-       ]
-  },
-  {
   "id": "cordova-plugin-geolocation.Coordinates",
   "file": "plugins/cordova-plugin-geolocation/www/Coordinates.js",
   "pluginId": "cordova-plugin-geolocation",
@@ -378,8 +370,7 @@ module.exports.metadata =
   "cordova-plugin-vibration": "2.1.5",
   "cordova-plugin-dialogs": "1.3.3",
   "cordova-plugin-inappbrowser": "1.7.1",
-  "cordova-plugin-insomnia": "4.3.0",
-  "cordova-plugin-firebase": "2.0.4"
+  "cordova-plugin-insomnia": "4.3.0"
 };
 // BOTTOM OF METADATA
 });
