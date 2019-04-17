@@ -208,12 +208,8 @@
     if(self.wwwFolderName == nil){
         self.wwwFolderName = @"www";
     }
-    if(delegate.startPage && self.startPage == nil){
-        self.startPage = delegate.startPage;
-    }
-    if (self.startPage == nil) {
-        self.startPage = @"index.html";
-    }
+    
+    self.startPage = @"";
 
     // Initialize the plugin objects dict.
     self.pluginObjects = [[NSMutableDictionary alloc] initWithCapacity:20];
@@ -226,7 +222,7 @@
     if ([self.startPage rangeOfString:@"://"].location != NSNotFound) {
         appURL = [NSURL URLWithString:self.startPage];
     } else if ([self.wwwFolderName rangeOfString:@"://"].location != NSNotFound) {
-        appURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@/%@", self.wwwFolderName, self.startPage]];
+        appURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@", self.wwwFolderName]];
     } else if([self.wwwFolderName rangeOfString:@".bundle"].location != NSNotFound){
         // www folder is actually a bundle
         NSBundle* bundle = [NSBundle bundleWithPath:self.wwwFolderName];
