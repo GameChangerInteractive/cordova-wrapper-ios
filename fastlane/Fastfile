@@ -1,0 +1,39 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# For a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
+
+lane :device do
+  xcodebuild(
+    configuration: "Release",
+    clean: true,
+    build: true
+  )
+  zip(
+    path: "build/Release-iphoneos/GCMVP.framework",
+    output_path: "GCMVP.device.framework.zip"
+  )
+end
+
+lane :simulator do
+  xcodebuild(
+    configuration: "Release",
+    clean: true,
+    build: true,
+    xcargs: "-sdk 'iphonesimulator'"
+  )
+  zip(
+    path: "build/Release-iphonesimulator/GCMVP.framework",
+    output_path: "GCMVP.simulator.framework.zip"
+  )
+end

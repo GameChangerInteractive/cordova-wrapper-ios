@@ -2,3 +2,5 @@
 *.iml
 **/xcuserdata/**
 .DS_Store
+build
+*.zip
