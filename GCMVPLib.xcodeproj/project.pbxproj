@@ -31,11 +31,9 @@
 		84F51570233A2E38006ED7F1 /* CDVVibration.h in Headers */ = {isa = PBXBuildFile; fileRef = 84F51554233A2E38006ED7F1 /* CDVVibration.h */; };
 		84F51571233A2E38006ED7F1 /* Flashlight.h in Headers */ = {isa = PBXBuildFile; fileRef = 84F51556233A2E38006ED7F1 /* Flashlight.h */; };
 		84F51572233A2E38006ED7F1 /* Flashlight.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F51557233A2E38006ED7F1 /* Flashlight.m */; };
-		84F51573233A2E38006ED7F1 /* CDVRemoteInjectionUIWebViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F51559233A2E38006ED7F1 /* CDVRemoteInjectionUIWebViewDelegate.m */; };
 		84F51574233A2E38006ED7F1 /* CDVRemoteInjectionWKWebViewDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 84F5155A233A2E38006ED7F1 /* CDVRemoteInjectionWKWebViewDelegate.h */; };
 		84F51575233A2E38006ED7F1 /* CDVRemoteInjection.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F5155B233A2E38006ED7F1 /* CDVRemoteInjection.m */; };
 		84F51576233A2E38006ED7F1 /* CDVRemoteInjectionWebViewBaseDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F5155C233A2E38006ED7F1 /* CDVRemoteInjectionWebViewBaseDelegate.m */; };
-		84F51577233A2E38006ED7F1 /* CDVRemoteInjectionUIWebViewDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 84F5155D233A2E38006ED7F1 /* CDVRemoteInjectionUIWebViewDelegate.h */; };
 		84F51578233A2E38006ED7F1 /* CDVRemoteInjection.h in Headers */ = {isa = PBXBuildFile; fileRef = 84F5155E233A2E38006ED7F1 /* CDVRemoteInjection.h */; };
 		84F51579233A2E38006ED7F1 /* CDVRemoteInjectionWKWebViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F5155F233A2E38006ED7F1 /* CDVRemoteInjectionWKWebViewDelegate.m */; };
 		84F5157A233A2E38006ED7F1 /* CDVRemoteInjectionWebViewBaseDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 84F51560233A2E38006ED7F1 /* CDVRemoteInjectionWebViewBaseDelegate.h */; };
@@ -169,11 +167,9 @@
 		84F51554233A2E38006ED7F1 /* CDVVibration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDVVibration.h; sourceTree = "<group>"; };
 		84F51556233A2E38006ED7F1 /* Flashlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Flashlight.h; sourceTree = "<group>"; };
 		84F51557233A2E38006ED7F1 /* Flashlight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Flashlight.m; sourceTree = "<group>"; };
-		84F51559233A2E38006ED7F1 /* CDVRemoteInjectionUIWebViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDVRemoteInjectionUIWebViewDelegate.m; sourceTree = "<group>"; };
 		84F5155A233A2E38006ED7F1 /* CDVRemoteInjectionWKWebViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDVRemoteInjectionWKWebViewDelegate.h; sourceTree = "<group>"; };
 		84F5155B233A2E38006ED7F1 /* CDVRemoteInjection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDVRemoteInjection.m; sourceTree = "<group>"; };
 		84F5155C233A2E38006ED7F1 /* CDVRemoteInjectionWebViewBaseDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDVRemoteInjectionWebViewBaseDelegate.m; sourceTree = "<group>"; };
-		84F5155D233A2E38006ED7F1 /* CDVRemoteInjectionUIWebViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDVRemoteInjectionUIWebViewDelegate.h; sourceTree = "<group>"; };
 		84F5155E233A2E38006ED7F1 /* CDVRemoteInjection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDVRemoteInjection.h; sourceTree = "<group>"; };
 		84F5155F233A2E38006ED7F1 /* CDVRemoteInjectionWKWebViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDVRemoteInjectionWKWebViewDelegate.m; sourceTree = "<group>"; };
 		84F51560233A2E38006ED7F1 /* CDVRemoteInjectionWebViewBaseDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDVRemoteInjectionWebViewBaseDelegate.h; sourceTree = "<group>"; };
@@ -402,11 +398,9 @@
 		84F51558233A2E38006ED7F1 /* cordova-plugin-remote-injection */ = {
 			isa = PBXGroup;
 			children = (
-				84F51559233A2E38006ED7F1 /* CDVRemoteInjectionUIWebViewDelegate.m */,
 				84F5155A233A2E38006ED7F1 /* CDVRemoteInjectionWKWebViewDelegate.h */,
 				84F5155B233A2E38006ED7F1 /* CDVRemoteInjection.m */,
 				84F5155C233A2E38006ED7F1 /* CDVRemoteInjectionWebViewBaseDelegate.m */,
-				84F5155D233A2E38006ED7F1 /* CDVRemoteInjectionUIWebViewDelegate.h */,
 				84F5155E233A2E38006ED7F1 /* CDVRemoteInjection.h */,
 				84F5155F233A2E38006ED7F1 /* CDVRemoteInjectionWKWebViewDelegate.m */,
 				84F51560233A2E38006ED7F1 /* CDVRemoteInjectionWebViewBaseDelegate.h */,
@@ -475,7 +469,6 @@
 				9052DE8A2150D06B008E83D4 /* CDVJSON_private.h in Headers */,
 				9052DE8B2150D06B008E83D4 /* CDVPlugin+Private.h in Headers */,
 				84F51563233A2E38006ED7F1 /* CDVAssetLibraryFilesystem.h in Headers */,
-				84F51577233A2E38006ED7F1 /* CDVRemoteInjectionUIWebViewDelegate.h in Headers */,
 				84F51570233A2E38006ED7F1 /* CDVVibration.h in Headers */,
 				84F5156A233A2E38006ED7F1 /* NSString+SSURLEncoding.h in Headers */,
 				84F5156E233A2E38006ED7F1 /* Insomnia.h in Headers */,
@@ -587,7 +580,6 @@
 				9052DE802150D040008E83D4 /* CDVJSON_private.m in Sources */,
 				84F5156D233A2E38006ED7F1 /* Insomnia.m in Sources */,
 				9052DE812150D040008E83D4 /* CDVLogger.m in Sources */,
-				84F51573233A2E38006ED7F1 /* CDVRemoteInjectionUIWebViewDelegate.m in Sources */,
 				9052DE822150D040008E83D4 /* CDVGestureHandler.m in Sources */,
 				7E997948231CEEF600689DFB /* CDVIOSWKWebViewUIDelegate.m in Sources */,
 				9052DE832150D040008E83D4 /* CDVIntentAndNavigationFilter.m in Sources */,
