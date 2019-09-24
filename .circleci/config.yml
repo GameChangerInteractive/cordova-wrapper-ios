@@ -1,12 +1,13 @@
 version: 2
 jobs:
-  macos:
-      xcode: "11.0.0"
-  steps:
-    - checkout
-    - run: fastlane device
-    - run: fastlane simulator
-    - store_artifacts:
-        path: GCMVP.device.framework.zip
-    - store_artifacts:
-        path: GCMVP.simulator.framework.zip        
+  build:
+    macos:
+        xcode: "11.0.0"
+    steps:
+      - checkout
+      - run: fastlane device
+      - run: fastlane simulator
+      - store_artifacts:
+          path: GCMVP.device.framework.zip
+      - store_artifacts:
+          path: GCMVP.simulator.framework.zip        
