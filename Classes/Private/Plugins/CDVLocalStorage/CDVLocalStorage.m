@@ -18,18 +18,17 @@
  */
 
 #import "CDVLocalStorage.h"
-#import "CDV.h"
+#import <GCMVP/CDV.h>
 
 @interface CDVLocalStorage ()
 
 @property (nonatomic, readwrite, strong) NSMutableArray* backupInfo;  // array of CDVBackupInfo objects
-@property (nonatomic, readwrite, weak) id <UIWebViewDelegate> webviewDelegate;
 
 @end
 
 @implementation CDVLocalStorage
 
-@synthesize backupInfo, webviewDelegate;
+@synthesize backupInfo;
 
 - (void)pluginInitialize
 {
@@ -334,21 +333,8 @@
 
     NSMutableArray* backupInfo = [NSMutableArray arrayWithCapacity:0];
 
-    if ([backupType isEqualToString:@"cloud"]) {
-#ifdef DEBUG
-            NSLog(@"\n\nStarted backup to iCloud! Please be careful."
-                "\nYour application might be rejected by Apple if you store too much data."
-                "\nFor more information please read \"iOS Data Storage Guidelines\" at:"
-                "\nhttps://developer.apple.com/icloud/documentation/data-storage/"
-                "\nTo disable web storage backup to iCloud, set the BackupWebStorage preference to \"local\" in the Cordova config.xml file\n\n");
-#endif
-        // We would like to restore old backups/caches databases to the new destination (nested in lib folder)
-        [backupInfo addObjectsFromArray:[self createBackupInfoWithTargetDir:appLibraryFolder backupDir:[appDocumentsFolder stringByAppendingPathComponent:@"Backups"] targetDirNests:YES backupDirNests:NO rename:YES]];
-        [backupInfo addObjectsFromArray:[self createBackupInfoWithTargetDir:appLibraryFolder backupDir:[appLibraryFolder stringByAppendingPathComponent:@"Caches"] targetDirNests:YES backupDirNests:NO rename:NO]];
-    } else {
-        // For ios6 local backups we also want to restore from Backups dir -- but we don't need to do that here, since the plugin will do that itself.
-        [backupInfo addObjectsFromArray:[self createBackupInfoWithTargetDir:[appLibraryFolder stringByAppendingPathComponent:@"Caches"] backupDir:appLibraryFolder targetDirNests:NO backupDirNests:YES rename:NO]];
-    }
+    // For ios6 local backups we also want to restore from Backups dir -- but we don't need to do that here, since the plugin will do that itself.
+    [backupInfo addObjectsFromArray:[self createBackupInfoWithTargetDir:[appLibraryFolder stringByAppendingPathComponent:@"Caches"] backupDir:appLibraryFolder targetDirNests:NO backupDirNests:YES rename:NO]];
 
     NSFileManager* manager = [NSFileManager defaultManager];
 

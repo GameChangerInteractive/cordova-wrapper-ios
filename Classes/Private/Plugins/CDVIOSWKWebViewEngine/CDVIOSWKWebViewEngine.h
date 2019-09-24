@@ -17,20 +17,13 @@
  under the License.
  */
 
-#import <UIKit/UIKit.h>
-#import "CDVCommandDelegate.h"
+#import <WebKit/WebKit.h>
+#import <GCMVP/CDV.h>
 
-@class CDVViewController;
-@class CDVCommandQueue;
+@interface CDVIOSWKWebViewEngine : CDVPlugin <CDVWebViewEngineProtocol, WKScriptMessageHandler, WKNavigationDelegate>
 
-@interface CDVCommandDelegateImpl : NSObject <CDVCommandDelegate>{
-    @private
-    __weak CDVViewController* _viewController;
-    NSRegularExpression* _callbackIdPattern;
-    @protected
-    __weak CDVCommandQueue* _commandQueue;
-    BOOL _delayResponses;
-}
-- (id)initWithViewController:(CDVViewController*)viewController;
-- (void)flushCommandQueueWithDelayedJs;
+@property (nonatomic, strong, readonly) id <WKUIDelegate> uiDelegate;
+
+- (void)allowsBackForwardNavigationGestures:(CDVInvokedUrlCommand*)command;
+
 @end

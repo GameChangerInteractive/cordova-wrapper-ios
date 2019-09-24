@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:/Users/nick/develop/projects/gamechanger/cordova-wrapper-ios/GCMVPLib.xcodeproj">
+      location = "self:/Users/admin/develop/projects/gamechanger/test-cordova-app/platforms/ios/CordovaLib/GCMVPLib.xcodeproj">
    </FileRef>
 </Workspace>

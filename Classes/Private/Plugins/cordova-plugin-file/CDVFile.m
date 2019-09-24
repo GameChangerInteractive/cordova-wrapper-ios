@@ -241,8 +241,8 @@ NSString* const kCDVFilesystemURLPrefix = @"cdvfile";
 - (NSArray *)getExtraFileSystemsPreference:(UIViewController *)vc
 {
     NSString *filesystemsStr = nil;
-    if([self.viewController isKindOfClass:[GCMVPViewController class]]) {
-        GCMVPViewController *vc = (GCMVPViewController *)self.viewController;
+    if([self.viewController isKindOfClass:[CDVViewController class]]) {
+        CDVViewController *vc = (CDVViewController *)self.viewController;
         NSDictionary *settings = [vc settings];
         filesystemsStr = [settings[@"iosextrafilesystems"] lowercaseString];
     }
@@ -324,8 +324,8 @@ NSString* const kCDVFilesystemURLPrefix = @"cdvfile";
 
 
     NSString *location = nil;
-    if([self.viewController isKindOfClass:[GCMVPViewController class]]) {
-        GCMVPViewController *vc = (GCMVPViewController *)self.viewController;
+    if([self.viewController isKindOfClass:[CDVViewController class]]) {
+        CDVViewController *vc = (CDVViewController *)self.viewController;
         NSMutableDictionary *settings = vc.settings;
         location = [[settings objectForKey:@"iospersistentfilelocation"] lowercaseString];
     }

@@ -1,5 +1,5 @@
-# wrapper-ios v1.0.0
-:iphone: native cordova-enabled ios webview that wraps our website
+# iOS Cordova Wrapper
+:iphone: native cordova-enabled ios webview that wraps GC games
 
 ## How to build from source
 
@@ -16,9 +16,9 @@ Select the GCMVP build target and build it.
 
     #import <CoreData/CoreData.h>
 
-    #import "GCMVP/GCMVPAppDelegate.h"
+    #import "GCMVP/CDVAppDelegate.h"
 
-    @interface AppDelegate : GCMVPAppDelegate
+    @interface AppDelegate : CDVAppDelegate
 
     //@property (strong, nonatomic) UIWindow *window;
 
@@ -33,9 +33,9 @@ Select the GCMVP build target and build it.
 
     ```
     #import <UIKit/UIKit.h>
-    #import "GCMVP/GCMVPViewController.h"
+    #import "GCMVP/CDVViewController.h"
 
-    @interface ViewController : GCMVPViewController
+    @interface ViewController : CDVViewController
 
 
     @end

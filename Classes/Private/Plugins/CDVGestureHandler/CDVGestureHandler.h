@@ -17,7 +17,7 @@
  under the License.
  */
 
-#import "CDVPlugin.h"
+#import <GCMVP/CDVPlugin.h>
 
 @interface CDVGestureHandler : CDVPlugin
 

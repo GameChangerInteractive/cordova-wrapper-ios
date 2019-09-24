@@ -20,7 +20,7 @@
 #import "CDVPlugin.h"
 #import "CDVPlugin+Private.h"
 #import "CDVPlugin+Resources.h"
-#import "GCMVPViewController.h"
+#import "CDVViewController.h"
 #include <objc/message.h>
 
 @implementation UIView (org_apache_cordova_UIView_Extension)
@@ -44,9 +44,6 @@ NSString* const CDVPageDidLoadNotification = @"CDVPageDidLoadNotification";
 NSString* const CDVPluginHandleOpenURLNotification = @"CDVPluginHandleOpenURLNotification";
 NSString* const CDVPluginHandleOpenURLWithAppSourceAndAnnotationNotification = @"CDVPluginHandleOpenURLWithAppSourceAndAnnotationNotification";
 NSString* const CDVPluginResetNotification = @"CDVPluginResetNotification";
-NSString* const CDVLocalNotification = @"CDVLocalNotification";
-NSString* const CDVRemoteNotification = @"CDVRemoteNotification";
-NSString* const CDVRemoteNotificationError = @"CDVRemoteNotificationError";
 NSString* const CDVViewWillAppearNotification = @"CDVViewWillAppearNotification";
 NSString* const CDVViewDidAppearNotification = @"CDVViewDidAppearNotification";
 NSString* const CDVViewWillDisappearNotification = @"CDVViewWillDisappearNotification";

@@ -30,6 +30,9 @@ static NSString *const kShareOptionUrl = @"url";
 }
 
 - (NSString*)getIPadPopupCoordinates {
+  // see https://github.com/EddyVerbruggen/SocialSharing-PhoneGap-Plugin/issues/1052
+  return nil;
+  /*
   if (_popupCoordinates != nil) {
     return _popupCoordinates;
   }
@@ -39,6 +42,7 @@ static NSString *const kShareOptionUrl = @"url";
     // prolly a wkwebview, ignoring for now
     return nil;
   }
+  */
 }
 
 - (void)setIPadPopupCoordinates:(CDVInvokedUrlCommand*)command {
@@ -107,7 +111,7 @@ static NSString *const kShareOptionUrl = @"url";
     }
 
     if (urlString != (id)[NSNull null] && urlString != nil) {
-        [activityItems addObject:[NSURL URLWithString:[urlString URLEncodedString]]];
+        [activityItems addObject:[NSURL URLWithString:[urlString SSURLEncodedString]]];
     }
 
     UIActivity *activity = [[UIActivity alloc] init];
@@ -297,7 +301,7 @@ static NSString *const kShareOptionUrl = @"url";
   }
 
   if (urlString != (id)[NSNull null]) {
-    [composeViewController addURL:[NSURL URLWithString:[urlString URLEncodedString]]];
+    [composeViewController addURL:[NSURL URLWithString:[urlString SSURLEncodedString]]];
   }
 
   [composeViewController setCompletionHandler:^(SLComposeViewControllerResult result) {
@@ -646,7 +650,7 @@ static NSString *const kShareOptionUrl = @"url";
       if ([shareString isEqual: @""]) {
         shareString = urlString;
       } else {
-        shareString = [NSString stringWithFormat:@"%@ %@", shareString, [urlString URLEncodedString]];
+        shareString = [NSString stringWithFormat:@"%@ %@", shareString, [urlString SSURLEncodedString]];
       }
     }
     NSString *encodedShareString = [shareString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
@@ -735,8 +739,23 @@ static NSString *const kShareOptionUrl = @"url";
     if ([fileName hasPrefix:@"http"]) {
       NSURL *url = [NSURL URLWithString:fileName];
       NSData *fileData = [NSData dataWithContentsOfURL:url];
-      NSString *name = (NSString*)[[fileName componentsSeparatedByString: @"/"] lastObject];
-      file = [NSURL fileURLWithPath:[self storeInFile:[name componentsSeparatedByString: @"?"][0] fileData:fileData]];
+      NSURLRequest *request = [NSURLRequest requestWithURL: url];
+      NSHTTPURLResponse *response;
+      [NSURLConnection sendSynchronousRequest: request returningResponse: &response error: nil];
+      if ([response respondsToSelector:@selector(allHeaderFields)]) {
+        NSDictionary *dictionary = [response allHeaderFields];
+        NSLog([dictionary description]);
+        NSString *name = dictionary[@"Content-Disposition"];
+        if (name == nil){
+          NSString *name = (NSString*)[[fileName componentsSeparatedByString: @"/"] lastObject];
+          file = [NSURL fileURLWithPath:[self storeInFile:[name componentsSeparatedByString: @"?"][0] fileData:fileData]];
+        } else {
+          file = [NSURL fileURLWithPath:[self storeInFile:[[name componentsSeparatedByString:@"="] lastObject] fileData:fileData]];
+        }
+      } else {
+	    NSString *name = (NSString*)[[fileName componentsSeparatedByString: @"/"] lastObject];
+        file = [NSURL fileURLWithPath:[self storeInFile:[name componentsSeparatedByString: @"?"][0] fileData:fileData]];
+	  }
     } else if ([fileName hasPrefix:@"www/"]) {
       NSString *bundlePath = [[NSBundle mainBundle] bundlePath];
       NSString *fullPath = [NSString stringWithFormat:@"%@/%@", bundlePath, fileName];

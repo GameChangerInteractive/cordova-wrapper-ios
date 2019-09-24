@@ -14,6 +14,7 @@ SocialSharing.prototype.iPadPopupCoordinates = function () {
 };
 
 SocialSharing.prototype.setIPadPopupCoordinates = function (coords) {
+  console.log("Deprecated - setIPadPopupCoordinates no longer works since plugin version 5.5.0. See https://github.com/EddyVerbruggen/SocialSharing-PhoneGap-Plugin/issues/1052");
   // left,top,width,height
   cordova.exec(function() {}, this._getErrorCallback(function() {}, "setIPadPopupCoordinates"), "SocialSharing", "setIPadPopupCoordinates", [coords]);
 };
@@ -138,7 +139,13 @@ SocialSharing.install = function () {
   }
 
   window.plugins.socialsharing = new SocialSharing();
-  navigator.share = window.plugins.socialsharing.shareW3C;
+
+  // Note only polyfill navigator.share if it is not defined, since shareW3C implements L1 of the spec,
+  // and an existing navigator.share method could implement L2.
+  if (!navigator.share) {
+    navigator.share = window.plugins.socialsharing.shareW3C;
+  }
+
   return window.plugins.socialsharing;
 };
 

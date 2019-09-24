@@ -17,8 +17,10 @@
  under the License.
  */
 
-#import "CDVPlugin.h"
-#import "CDVWhitelist.h"
+#import <GCMVP/CDVPlugin.h>
+#import <GCMVP/CDVWhitelist.h>
+
+#define CDVWebViewNavigationType int
 
 typedef NS_ENUM(NSInteger, CDVIntentAndNavigationFilterValue) {
     CDVIntentAndNavigationFilterValueIntentAllowed,
@@ -29,6 +31,6 @@ typedef NS_ENUM(NSInteger, CDVIntentAndNavigationFilterValue) {
 @interface CDVIntentAndNavigationFilter : CDVPlugin <NSXMLParserDelegate>
 
 + (CDVIntentAndNavigationFilterValue) filterUrl:(NSURL*)url intentsWhitelist:(CDVWhitelist*)intentsWhitelist navigationsWhitelist:(CDVWhitelist*)navigationsWhitelist;
-+ (BOOL)shouldOverrideLoadWithRequest:(NSURLRequest*)request navigationType:(UIWebViewNavigationType)navigationType filterValue:(CDVIntentAndNavigationFilterValue)filterValue;
-+ (BOOL)shouldOpenURLRequest:(NSURLRequest*)request navigationType:(UIWebViewNavigationType)navigationType;
++ (BOOL)shouldOverrideLoadWithRequest:(NSURLRequest*)request navigationType:(CDVWebViewNavigationType)navigationType filterValue:(CDVIntentAndNavigationFilterValue)filterValue;
++ (BOOL)shouldOpenURLRequest:(NSURLRequest*)request navigationType:(CDVWebViewNavigationType)navigationType;
 @end

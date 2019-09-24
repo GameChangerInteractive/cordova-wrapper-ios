@@ -18,7 +18,7 @@
  */
 
 #import "CDVHandleOpenURL.h"
-#import "CDV.h"
+#import <GCMVP/CDV.h>
 
 @implementation CDVHandleOpenURL
 

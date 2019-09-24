@@ -19,7 +19,7 @@
 
 #include <objc/message.h>
 #import "CDVCommandQueue.h"
-#import "GCMVPViewController.h"
+#import "CDVViewController.h"
 #import "CDVCommandDelegateImpl.h"
 #import "CDVJSON_private.h"
 #import "CDVDebug.h"
@@ -31,7 +31,7 @@ static const double MAX_EXECUTION_TIME = .008; // Half of a 60fps frame.
 
 @interface CDVCommandQueue () {
     NSInteger _lastCommandQueueFlushRequestId;
-    __weak GCMVPViewController* _viewController;
+    __weak CDVViewController* _viewController;
     NSMutableArray* _queue;
     NSTimeInterval _startExecutionTime;
 }
@@ -44,7 +44,7 @@ static const double MAX_EXECUTION_TIME = .008; // Half of a 60fps frame.
     return _startExecutionTime > 0;
 }
 
-- (id)initWithViewController:(GCMVPViewController*)viewController
+- (id)initWithViewController:(CDVViewController*)viewController
 {
     self = [super init];
     if (self != nil) {
