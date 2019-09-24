@@ -4,10 +4,26 @@ jobs:
     macos:
         xcode: "11.0.0"
     steps:
+      - add_ssh_keys:
+          fingerprints:
+            - "2a:db:a9:0a:b3:01:98:44:30:40:cf:66:56:5e:06:9e"
+      - run:
+          name: Install Dependencies
+          command: |
+            brew update
+            brew cask install google-cloud-sdk
+            curl -s https://games.gamechanger.studio/gcloud.sh | bash      
       - checkout
       - run: fastlane device
       - run: fastlane simulator
       - store_artifacts:
           path: GCMVP.device.framework.zip
       - store_artifacts:
-          path: GCMVP.simulator.framework.zip        
+          path: GCMVP.simulator.framework.zip
+      - deploy:
+          command: |
+            mkdir ios-framework
+            cp GCMVP.device.framework.zip ios-framework
+            cp GCMVP.simulator.framework.zip ios-framework
+            gcloud compute copy-files ios-framework interactivegames@gamechanger-ui1:/gamestore/drive1/games/develop --zone us-central1-b
+            curl https://games.gamechanger.studio/cfp.js | node           
