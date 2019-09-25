@@ -21,7 +21,7 @@ lane :device do
   )
   zip(
     path: "build/Release-iphoneos/GCMVP.framework",
-    output_path: "GCMVP.device.framework.zip"
+    output_path: "dist/GCMVP.device.framework.zip"
   )
 end
 
@@ -34,6 +34,13 @@ lane :simulator do
   )
   zip(
     path: "build/Release-iphonesimulator/GCMVP.framework",
-    output_path: "GCMVP.simulator.framework.zip"
+    output_path: "dist/GCMVP.simulator.framework.zip"
+  )
+end
+
+lane :both do
+  zip(
+    path: "dist/GCMVP.framework",
+    output_path: "dist/GCMVP.framework.zip"
   )
 end

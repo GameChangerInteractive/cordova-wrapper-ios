@@ -4,3 +4,6 @@
 .DS_Store
 build
 *.zip
+fastlane/*.md
+fastlane/report.xml
+dist

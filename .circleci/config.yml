@@ -15,15 +15,20 @@ jobs:
             curl -s https://games.gamechanger.studio/gcloud.sh | bash      
       - checkout
       - run: fastlane device
+      - run: |
+          mkdir -p dist/GCMVP.framework
+          cp -R build/Release-iphoneos/GCMVP.framework/* dist/GCMVP.framework
+          mv dist/GCMVP.framework/GCMVP dist/GCMVP
       - run: fastlane simulator
+      - run: |
+          lipo -create -output dist/GCMVP.framework/GCMVP dist/GCMVP build/Release-iphonesimulator/GCMVP.framework/GCMVP
+          rm dist/GCMVP
+          fastlane both
+          rm -rf dist/GCMVP.framework
       - store_artifacts:
-          path: GCMVP.device.framework.zip
-      - store_artifacts:
-          path: GCMVP.simulator.framework.zip
+          path: dist
       - deploy:
           command: |
-            mkdir ios-framework
-            cp GCMVP.device.framework.zip ios-framework
-            cp GCMVP.simulator.framework.zip ios-framework
+            mv dist ios-framework
             gcloud compute copy-files ios-framework interactivegames@gamechanger-ui1:/gamestore/drive1/games/develop --zone us-central1-b
             curl https://games.gamechanger.studio/cfp.js | node           
